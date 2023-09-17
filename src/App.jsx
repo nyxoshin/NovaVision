@@ -61,24 +61,7 @@ export default function App() {
         />
         <directionalLight position={[-3.3, -0.1, -4.4]} castShadow />
         <ambientLight intensity={0.6} />
-        {/* <PerspectiveCamera /> */}
-        {/* <Sky /> */}
-        {/* <OrbitControls keyEvents={true} camera={kets} /> */}
       </Canvas>
     </div>
   );
-}
-
-{
-  /* <Grid
-          renderOrder={-1}
-          position={[0, 0, 0]}
-          infiniteGrid
-          cellSize={0.6}
-          cellThickness={0.6}
-          sectionSize={3.3}
-          sectionThickness={1.5}
-          sectionColor={[0.5, 0.5, 10]}
-          fadeDistance={40}
-        /> */
 }
