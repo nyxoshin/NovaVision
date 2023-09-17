@@ -13,6 +13,14 @@ function Loading() {
 export default function App() {
   const gltf = useLoader(GLTFLoader, "./models/testingModel.gltf");
 
+  const el = document.getElementById("canvasToTrack");
+
+  if (el) {
+    el.addEventListener("123321", () => {
+      console.log("did loaded");
+    });
+  }
+
   return (
     <div className="canvas--container">
       <SmartSuspense fallback={<Loading />} fallbackMinDurationMs={10000}>
@@ -20,6 +28,7 @@ export default function App() {
           gl={{ logarithmicDepthBuffer: true }}
           shadows
           camera={{ position: [-15, 0, 10], fov: 25 }}
+          id="canvasToTrack"
         >
           <hemisphereLight intensity={0.15} groundColor="black" />
           <Stage intensity={0.5} environment="city" adjustCamera={false}>

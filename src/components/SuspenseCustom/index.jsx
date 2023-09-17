@@ -32,7 +32,7 @@ const SmartSuspense = ({
           setShowFallback(true);
           onShowFallback();
         }, fallbackDelayMs);
-
+        console.log("123", timeoutId);
         return () => {
           clearInterval(timeoutId);
         };
