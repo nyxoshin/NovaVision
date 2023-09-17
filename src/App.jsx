@@ -49,6 +49,7 @@ export default function App() {
             minPolarAngle={Math.PI / 2}
             maxPolarAngle={Math.PI / 2}
             keys={{ LEFT: "a", RIGHT: "d" }}
+            enablePan={false}
           />
           <directionalLight position={[-3.3, -0.1, -4.4]} castShadow />
           <ambientLight intensity={0.6} />
