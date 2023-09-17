@@ -1,31 +1,26 @@
-import React, { Suspense } from "react";
-import { PerspectiveCamera, Sky } from "@react-three/drei";
+import React from "react";
+import { Suspense } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
-import {
-  useGLTF,
-  Stage,
-  Grid,
-  OrbitControls,
-  Environment,
-} from "@react-three/drei";
+import { Stage, OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "./styles/app.css";
-import { Camera, LoaderUtils, LoadingManager } from "three";
-import Loader from "./components/Loader";
+import SmartSuspense from "./components/SuspenseCustom";
+
+function Loading() {
+  return <h2>🌀 Loading...</h2>;
+}
 
 export default function App() {
   const gltf = useLoader(GLTFLoader, "./models/testingModel.gltf");
 
   return (
     <div className="canvas--container">
-      <Suspense fallback={<Loader />}>
+      <SmartSuspense fallback={<Loading />} fallbackMinDurationMs={10000}>
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}
           shadows
           camera={{ position: [-15, 0, 10], fov: 25 }}
         >
-          {/* <color attach="background" args={["#4a5861"]} /> */}
-          {/* <fog attach="fog" args={["white", 15, 50]} /> */}
           <hemisphereLight intensity={0.15} groundColor="black" />
           <Stage intensity={0.5} environment="city" adjustCamera={false}>
             <primitive
@@ -56,7 +51,7 @@ export default function App() {
           <directionalLight position={[-3.3, -0.1, -4.4]} castShadow />
           <ambientLight intensity={0.6} />
         </Canvas>
-      </Suspense>
+      </SmartSuspense>
     </div>
   );
 }
