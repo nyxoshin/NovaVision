@@ -9,7 +9,6 @@ import React, {
 const SmartSuspense = ({
   children,
   fallback,
-  fallbackDelayMs = 0,
   fallbackMinDurationMs = 0,
 }) => {
   const [isWaitingFallbackMinDurationMs, setIsWaitingFallbackMinDurationMs] =
@@ -21,26 +20,14 @@ const SmartSuspense = ({
 
   const FallbackDelayer = ({
     fallback,
-    fallbackDelayMs = void 0,
     onShowFallback,
   }) => {
     const [showFallback, setShowFallback] = useState(false);
 
     useEffect(() => {
-      if (fallbackDelayMs) {
-        const timeoutId = setTimeout(() => {
-          setShowFallback(true);
-          onShowFallback();
-        }, fallbackDelayMs);
-
-        return () => {
-          clearInterval(timeoutId);
-        };
-      } else {
-        setShowFallback(true);
-        onShowFallback();
-      }
-    }, [fallbackDelayMs, onShowFallback]);
+      setShowFallback(true);
+      onShowFallback();
+    }, [onShowFallback]);
 
     return showFallback ? fallback : null;
   };
@@ -66,7 +53,6 @@ const SmartSuspense = ({
       fallback={
         <FallbackDelayer
           fallback={fallback}
-          fallbackDelayMs={fallbackDelayMs}
           onShowFallback={startWaitingFallbackMinDurationMs}
         />
       }

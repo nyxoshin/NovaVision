@@ -1,21 +1,17 @@
 import React from "react";
-import { Suspense } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { Stage, OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "./styles/app.css";
 import SmartSuspense from "./components/SuspenseCustom";
-
-function Loading() {
-  return <h2>🌀 Loading...</h2>;
-}
+import Loader from "./components/Loader";
 
 export default function App() {
   const gltf = useLoader(GLTFLoader, "./models/testingModel.gltf");
 
   return (
     <div className="canvas--container">
-      <SmartSuspense fallback={<Loading />} fallbackMinDurationMs={10000}>
+      <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={4000}>
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}
           shadows
