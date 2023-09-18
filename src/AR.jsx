@@ -11,7 +11,7 @@ export default function App() {
 
   return (
     <div className="canvas--container">
-      <a rel="ar" href={gltf}>
+      <a rel="ar" href="./models/testingModel.gltf">
         fjkdlsfj;sd
       </a>
     </div>
