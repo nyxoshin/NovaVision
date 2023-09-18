@@ -5,13 +5,15 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "./styles/app.css";
 import SmartSuspense from "./components/SuspenseCustom";
 import Loader from "./components/Loader";
+import ARButton from "./components/ARButton";
 
 export default function App() {
-  const gltf = useLoader(GLTFLoader, "./models/testingModel.gltf");
+  const gltf = useLoader(GLTFLoader, "./models/barfits_final.gltf");
 
   return (
     <div className="canvas--container">
       <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={2000}>
+        <ARButton />
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}
           shadows
