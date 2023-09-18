@@ -1,5 +1,6 @@
 import React from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
+import { ARButton, XR } from "@react-three/xr";
 import { Stage, OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "./styles/app.css";
@@ -12,11 +13,13 @@ export default function App() {
   return (
     <div className="canvas--container">
       <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={4000}>
+        <ARButton />
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}
           shadows
           camera={{ position: [-15, 0, 10], fov: 25 }}
         >
+          <XR>
           <hemisphereLight intensity={0.15} groundColor="black" />
           <Stage intensity={0.5} environment="city" adjustCamera={false}>
             <primitive
@@ -47,6 +50,7 @@ export default function App() {
           />
           <directionalLight position={[-3.3, -0.1, -4.4]} castShadow />
           <ambientLight intensity={0.6} />
+          </XR>
         </Canvas>
       </SmartSuspense>
     </div>
