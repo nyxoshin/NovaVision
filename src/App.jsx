@@ -5,9 +5,10 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "./styles/app.css";
 import SmartSuspense from "./components/SuspenseCustom";
 import Loader from "./components/Loader";
+import ARButton from "./components/ARButton";
 
 export default function App() {
-  const gltf = useLoader(GLTFLoader, "./models/testingModel.gltf");
+  const gltf = useLoader(GLTFLoader, "./models/barfits_final.gltf");
 
   const el = document.getElementById("canvasToTrack");
 
@@ -19,7 +20,8 @@ export default function App() {
 
   return (
     <div className="canvas--container">
-      <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={4000}>
+      <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={2000}>
+        <ARButton />
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}
           shadows
@@ -45,13 +47,13 @@ export default function App() {
           />
           <OrbitControls
             autoRotate
-            autoRotateSpeed={0.05}
-            enableZoom={false}
-            keyEvents={true}
+            autoRotateSpeed={1}
+            enableZoom={true}
+            minDistance={5}
+            maxDistance={30}
+            zoomToCursor={false}
             makeDefault
-            minPolarAngle={Math.PI / 2}
             maxPolarAngle={Math.PI / 2}
-            keys={{ LEFT: "a", RIGHT: "d" }}
             enablePan={false}
           />
           <directionalLight position={[-3.3, -0.1, -4.4]} castShadow />
