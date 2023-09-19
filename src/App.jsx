@@ -11,8 +11,8 @@ export default function App() {
   const gltf = useLoader(GLTFLoader, "./models/barfits_final.gltf");
 
   return (
-    <Loader>
-      <div className="canvas--container">
+    <div className="canvas--container">
+      <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
         <ARButton />
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}
@@ -50,7 +50,7 @@ export default function App() {
           <directionalLight position={[-3.3, -0.1, -4.4]} castShadow />
           <ambientLight intensity={0.6} />
         </Canvas>
-      </div>
-    </Loader>
+      </SmartSuspense>
+    </div>
   );
 }
