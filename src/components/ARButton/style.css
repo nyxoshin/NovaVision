@@ -48,3 +48,9 @@
         height: 32px;
     }
 }
+
+@media screen and (min-width: 1281px)  {
+    .container--arbutton {
+        display: none;
+    }
+}
