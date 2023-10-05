@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <div className="canvas--container">
-      <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={2000}>
+      <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
         <ARButton />
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}

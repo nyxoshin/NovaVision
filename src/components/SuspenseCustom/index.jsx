@@ -6,7 +6,12 @@ import React, {
   useRef,
 } from "react";
 
-const SmartSuspense = ({ children, fallback, fallbackMinDurationMs = 0 }) => {
+const SmartSuspense = ({
+  children,
+  fallback,
+  fallbackDelayMs = 0,
+  fallbackMinDurationMs = 0,
+}) => {
   const [isWaitingFallbackMinDurationMs, setIsWaitingFallbackMinDurationMs] =
     useState(false);
 
@@ -14,13 +19,28 @@ const SmartSuspense = ({ children, fallback, fallbackMinDurationMs = 0 }) => {
     throw new Promise(() => {});
   };
 
-  const FallbackDelayer = ({ fallback, onShowFallback }) => {
+  const FallbackDelayer = ({
+    fallback,
+    fallbackDelayMs = void 0,
+    onShowFallback,
+  }) => {
     const [showFallback, setShowFallback] = useState(false);
 
     useEffect(() => {
-      setShowFallback(true);
-      onShowFallback();
-    }, [onShowFallback]);
+      if (fallbackDelayMs) {
+        const timeoutId = setTimeout(() => {
+          setShowFallback(true);
+          onShowFallback();
+        }, fallbackDelayMs);
+
+        return () => {
+          clearInterval(timeoutId);
+        };
+      } else {
+        setShowFallback(true);
+        onShowFallback();
+      }
+    }, [fallbackDelayMs, onShowFallback]);
 
     return showFallback ? fallback : null;
   };
@@ -46,6 +66,7 @@ const SmartSuspense = ({ children, fallback, fallbackMinDurationMs = 0 }) => {
       fallback={
         <FallbackDelayer
           fallback={fallback}
+          fallbackDelayMs={fallbackDelayMs}
           onShowFallback={startWaitingFallbackMinDurationMs}
         />
       }

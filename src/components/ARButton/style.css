@@ -1,5 +1,5 @@
 .container--arbutton {
-    padding: 10px;
+    padding: 20px;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -9,8 +9,8 @@
     display: flex;
     transition: all .2s ease-out;
     flex-direction: column;
-    width: 100px;
-    height: 100px;
+    width: 88px;
+    height: 88px;
     justify-content: center;
     align-items: center;
     gap: 5px;
@@ -34,4 +34,23 @@
               inset -2px -2px 4px rgba(255, 255, 255, .5),
               inset 2px 2px 2px rgba(255, 255, 255, .075),
               inset 2px 2px 4px rgba(0, 0, 0, .15);
+}
+@media screen and (max-width: 1024px)  {
+    .container--arbutton {
+        padding: 10px;
+    }
+    .link--arbutton {
+        width: 44px;
+        height: 44px;
+    }
+    .arbutton--img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media screen and (min-width: 1281px)  {
+    .container--arbutton {
+        display: none;
+    }
 }

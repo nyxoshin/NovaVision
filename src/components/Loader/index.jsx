@@ -1,7 +1,17 @@
+import './style.css'
+
 export default function Loader() {
   return (
-    <div style={{ width: "100vw", height: "100vh", backgroundColor: "green" }}>
-      THIS IS LOADING
+    <div className='container--loader'>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   );
 }
