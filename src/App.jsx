@@ -6,6 +6,7 @@ import "./styles/app.css";
 import SmartSuspense from "./components/SuspenseCustom";
 import Loader from "./components/Loader";
 import ARButton from "./components/ARButton";
+import isMobile from "./components/checkDevice";
 
 export default function App() {
   const gltf = useLoader(GLTFLoader, "./models/barfits_final.gltf");
@@ -17,6 +18,7 @@ export default function App() {
       console.log("did loaded");
     });
   }
+  console.log("urgeh", isMobile.Windows(), navigator.userAgent);
 
   return (
     <div className="canvas--container">

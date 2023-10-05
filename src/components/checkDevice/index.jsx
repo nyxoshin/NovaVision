@@ -1,0 +1,34 @@
+const isMobile = {
+  Android: function () {
+    return (
+      navigator.userAgent.match(/Android/i) ||
+      navigator.userAgent.match(/Miui/i)
+    );
+  },
+  BlackBerry: function () {
+    return navigator.userAgent.match(/BlackBerry/i);
+  },
+  iOS: function () {
+    return navigator.userAgent.match(/iPhone|iPad/i);
+  },
+  Opera: function () {
+    return navigator.userAgent.match(/Opera Mini/i);
+  },
+  Windows: function () {
+    return (
+      navigator.userAgent.match(/Windows/i) ||
+      navigator.userAgent.match(/AppleWebKit/i)
+    );
+  },
+  any: function () {
+    return (
+      isMobile.Android() ||
+      isMobile.BlackBerry() ||
+      isMobile.iOS() ||
+      isMobile.Opera() ||
+      isMobile.Windows()
+    );
+  },
+};
+
+export default isMobile;
