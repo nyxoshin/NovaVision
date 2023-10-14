@@ -16,7 +16,7 @@ export default function ARButton() {
             href="./models/Apple/AR_barfits.usdz"
             className="link--arbutton"
           >
-            <img src="./images/logo-ar.svg" width="50px" height="50px" />
+            <img src="./images/logo-ar.svg" width="50px" height="50px" className='.arbutton--img' />
           </a>
         </div>
       )}
@@ -32,7 +32,7 @@ export default function ARButton() {
             </a>
           </div> */}
           <div class="container--arbutton">
-            <img src="./images/logo-ar.svg" width="50px" height="50px" />
+            <img src="./images/logo-ar.svg" width="50px" height="50px" className='.arbutton--img' />
             <button onClick={() => OpenUrl()}></button>
           </div>
         </>
