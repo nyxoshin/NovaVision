@@ -13,16 +13,12 @@ export default function ARButton() {
     if (isMobile.Android() !== null) {
       setAlertOpenAndroid(true);
       if (alertOpenAndroid === true) {
-        setTimeout(() => {
           setAlertOpenAndroid(false);
-        }, 5000);
       }
     } else if (isMobile.Windows() !== null) {
       setAlertOpenWindows(true);
       if (alertOpenWindows === true) {
-        setTimeout(() => {
           setAlertOpenWindows(false);
-        }, 5000);
       }
     }
     // window.open(model_url);

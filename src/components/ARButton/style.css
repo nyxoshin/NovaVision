@@ -116,10 +116,3 @@
     font-size: 4vw;
   }
 }
-
-@media screen and (min-width: 1281px) {
-  .arbutton--img {
-    width: 32px;
-    height: 32px;
-  }
-}
