@@ -41,7 +41,7 @@ export default function ARButton() {
               src="./images/logo-ar.svg"
               width="50px"
               height="50px"
-              className=".arbutton--img"
+              className="arbutton--img"
             />
           </a>
         </div>
@@ -63,7 +63,7 @@ export default function ARButton() {
                 src="./images/logo-ar.svg"
                 width="50px"
                 height="50px"
-                className=".arbutton--img"
+                className="arbutton--img"
               />
             </button>
             {alertOpenAndroid && (
@@ -101,7 +101,7 @@ export default function ARButton() {
                 src="./images/logo-ar.svg"
                 width="50px"
                 height="50px"
-                className=".arbutton--img"
+                className="arbutton--img"
               />
             </button>
             {alertOpenWindows && (

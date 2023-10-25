@@ -22,15 +22,18 @@
   padding: 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 8px;
+  align-items: flex-start;
+  text-align: left;
+  line-height: 1.4;
+  background-color: #f1f1f1;
+  border-radius: 20px;
   box-sizing: border-box;
 }
 .closeSvg {
   cursor: pointer;
+  opacity: 60%;
   position: absolute;
+  padding: 0px;
   right: 10px;
   top: 10px;
   width: fit-content;
@@ -39,7 +42,14 @@
   background-color: transparent;
 }
 .openIosAlert h3 {
-  margin-top: unset;
+  font-size: 26px;
+  font-weight: 900;
+  margin: unset;
+  margin-bottom: 10px;
+}
+.openIosAlert span {
+  font-size: 18px;
+  opacity: 60%;
 }
 .link--arbutton {
   border: unset;
@@ -83,22 +93,33 @@
     height: 32px;
   }
   .openIosAlert {
-    padding: 20px;
+    padding: 24px;
     min-width: 50vw;
     left: 10px;
+  }
+  .openIosAlert h3 {
+    font-size: 3vw;
+  }
+  .openIosAlert span {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .openIosAlert {
+    min-width: calc(100vw - 20px) !important;
+  }
+  .openIosAlert h3 {
+    font-size: 6vw;
+  }
+  .openIosAlert span {
+    font-size: 4vw;
   }
 }
 
 @media screen and (min-width: 1281px) {
-  .container--arbutton {
-    /* display: none; */
-  }
-
   .arbutton--img {
     width: 32px;
     height: 32px;
-  }
-  .openIosAlert {
-    left: 20px;
   }
 }
