@@ -6,7 +6,6 @@ import CloseIcon from "../../assets/icons/svg/closeButton";
 
 export default function ARButton() {
   const [alertOpenWindows, setAlertOpenWindows] = useState(false);
-  console.log("what dafq", alertOpenWindows);
   const [alertOpenAndroid, setAlertOpenAndroid] = useState(false);
   var model_url = `intent://arvr.google.com/scene-viewer/1.0?file=${"./models/barfits_final.gltf"}#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;`;
   function OpenUrl() {
@@ -26,7 +25,21 @@ export default function ARButton() {
   console.log("check the platform", isMobile.Windows());
   return (
     <>
-      {isMobile.iOS() !== null && (
+      <div className="container--arbutton">
+          <a
+            rel="ar"
+            href="./models/Apple/AR_barfits.usdz"
+            className="link--arbutton"
+          >
+            <img
+              src="./images/logo-ar.svg"
+              width="50px"
+              height="50px"
+              className="arbutton--img"
+            />
+          </a>
+        </div>
+      {/* {isMobile.iOS() !== null && (
         <div className="container--arbutton">
           <a
             rel="ar"
@@ -44,7 +57,7 @@ export default function ARButton() {
       )}
       {isMobile.Android() !== null && (
         <>
-          {/* <div className="container--arbutton">
+          <div className="container--arbutton">
             <a
               rel="ar"
               href="./models/Apple/AR_barfits.usdz"
@@ -52,7 +65,7 @@ export default function ARButton() {
             >
               <img src="./images/logo-ar.svg" width="50px" height="50px" />
             </a>
-          </div> */}
+          </div>
           <div class="container--arbutton">
             <button className="link--arbutton" onClick={() => OpenUrl()}>
               <img
@@ -82,7 +95,7 @@ export default function ARButton() {
       )}
       {isMobile.Windows() !== null && (
         <>
-          {/* <div className="container--arbutton">
+          <div className="container--arbutton">
             <a
               rel="ar"
               href="./models/Apple/AR_barfits.usdz"
@@ -90,7 +103,7 @@ export default function ARButton() {
             >
               <img src="./images/logo-ar.svg" width="50px" height="50px" />
             </a>
-          </div> */}
+          </div>
           <div class="container--arbutton">
             <button className="link--arbutton" onClick={() => OpenUrl()}>
               <img
@@ -120,7 +133,7 @@ export default function ARButton() {
             )}
           </div>
         </>
-      )}
+      )} */}
     </>
   );
 }
