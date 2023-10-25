@@ -1,8 +1,7 @@
 const isMobile = {
   Android: function () {
     return (
-      navigator.userAgent.match(/Android/i) ||
-      navigator.userAgent.match(/Miui/i)
+      navigator.userAgent.match(/Android/i)
     );
   },
   BlackBerry: function () {
