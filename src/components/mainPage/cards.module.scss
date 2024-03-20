@@ -1,0 +1,214 @@
+@use "/src/index.scss" as index;
+
+.cardsContainer {
+  margin: 100px 0px;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 10px;
+
+  & > .card {
+    height: fit-content;
+    max-height: 560px !important;
+    position: relative;
+    &:nth-child(1) {
+      width: 39.8%;
+    }
+    &:nth-child(2) {
+      width: 59.5%;
+    }
+    &:nth-child(3) {
+      width: 52.8%;
+    }
+    &:nth-child(4) {
+      width: 23.03%;
+    }
+    &:nth-child(5) {
+      width: 23.03%;
+    }
+    & > img {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      //   max-height: inherit;
+      object-fit: cover;
+    }
+    & > span {
+      color: var(--white);
+      font-size: 1.66vw;
+      font-weight: 700;
+      line-height: 1.66vw;
+      position: absolute;
+      top: 32px;
+      left: 32px;
+
+      & > p {
+        color: var(--grey_bright);
+        margin: unset;
+      }
+      & > .secondP {
+        color: var(--grey_dark);
+      }
+    }
+    & > .spanSmall {
+      font-size: 1.25vw;
+      line-height: 1.25vw;
+    }
+  }
+
+  & > .cardEven {
+    height: fit-content;
+    max-height: 560px;
+    width: 32.9%;
+    position: relative;
+    column-gap: 10px;
+
+    & > img {
+      //   position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    & > .title {
+      display: flex;
+      width: fit-content;
+      position: absolute;
+      bottom: 132px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+
+    & > .buttonDemo {
+      @include index.bright-button;
+      display: flex;
+      width: fit-content;
+      position: absolute;
+      bottom: 32px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      padding: 31px 60px;
+
+      font-size: 0.83vw;
+    }
+  }
+
+  .first {
+  }
+
+  .second {
+  }
+
+  .third {
+  }
+
+  .fourth {
+  }
+
+  .fifth {
+  }
+}
+
+.containerEven {
+  column-gap: 0.6%;
+  justify-content: center;
+}
+
+.containerThird {
+  //   column-gap: 0.6%;
+  justify-content: space-between;
+
+  & > div {
+    display: flex;
+    max-height: 560px;
+    height: fit-content;
+    position: relative;
+    & > img {
+      //   position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    & > .title {
+      white-space: pre-wrap;
+
+      font-size: 32px;
+      line-height: 32px;
+
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      flex-wrap: wrap;
+      position: absolute;
+      //   bottom: 132px;
+      left: 32px;
+      top: 32px;
+      //   right: 0;
+      margin: 0 auto;
+
+      & > .title_two {
+        font-size: 32px;
+        line-height: 32px;
+
+        color: var(--white);
+        opacity: 45%;
+      }
+
+      & > .subtext {
+      }
+    }
+  }
+  & > .cardRetail {
+    width: 29.3%;
+  }
+
+  & > .cardPercentage {
+    width: 23%;
+
+    & > .title {
+      white-space: pre-wrap;
+
+      font-size: 120px;
+      line-height: 120px;
+
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      flex-wrap: wrap;
+      position: absolute;
+      //   bottom: 132px;
+      left: 32px;
+      top: 32px;
+      //   right: 0;
+      margin: 0 auto;
+
+      & > .title_two {
+        font-size: 32px;
+        line-height: 32px;
+
+        color: var(--white);
+        opacity: 45%;
+      }
+      & > .subtext {
+        font-size: 18px;
+        line-height: 21.6px;
+      }
+    }
+  }
+
+  & > .cardLoyal {
+    width: 49.7%;
+    & > .title {
+      & > .subtext {
+        // word-spacing: ;
+        max-width: 50%;
+        font-size: 14px;
+        line-height: 19.6px;
+      }
+    }
+  }
+}
