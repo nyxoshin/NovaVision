@@ -8,6 +8,24 @@
   margin-top: 60px;
 }
 
+@media (max-width: 762px) {
+  .mainPage {
+    padding: 60px 12px 0px;
+  }
+  h1 {
+    font-size: 8.83vw !important;
+    line-height: 10.2vw !important;
+  }
+  h2 {
+    font-size: 6.97vw !important;
+    line-height: 7.2vw !important;
+  }
+  .subHeader {
+    font-size: 4.18vw !important;
+    line-height: 4.68vw !important;
+  }
+}
+
 .chairy {
   z-index: 0;
   display: flex;

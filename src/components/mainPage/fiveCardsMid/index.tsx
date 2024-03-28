@@ -11,7 +11,7 @@ export default function FiveCardsMid() {
   const cards: Array<IMidFiveCards> = [
     {
       backGroundImage: Trainee,
-      url: "/",
+      url: "/item/123",
       title: "Спортивное оборудование",
       style: styles.cardEven,
     },
@@ -23,13 +23,13 @@ export default function FiveCardsMid() {
     },
     {
       backGroundImage: Table,
-      url: "/",
+      url: "/item/132",
       title: "Мебель",
       style: styles.cardEven,
     },
     {
       backGroundImage: Tv,
-      url: "/",
+      url: "/item/321",
       title: "Бытовая техника",
       style: styles.cardEven,
     },
@@ -46,7 +46,9 @@ export default function FiveCardsMid() {
       {cards.map((a: IMidFiveCards, key: number) => (
         <div className={a.style} key={key} tabIndex={key}>
           <span className={styles.title}>{a.title}</span>
-          <button className={styles.buttonDemo}>Посмотреть демо</button>
+          <a className={styles.buttonDemo} href={a.url}>
+            Посмотреть демо
+          </a>
           <img
             src={a.backGroundImage}
             className={styles.first}

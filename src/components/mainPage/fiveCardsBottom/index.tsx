@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 import WhyAR from "../../../assets/images/botCards/WhyAR.png";
 import ClientLoyalty from "../../../assets/images/botCards/ClientLoyalty.png";
 import LifeStyle from "../../../assets/images/botCards/LifeStyle.png";
 import PercentageGrad from "../../../assets/images/botCards/PercentageGrad.png";
+import NinetyFour from "../../../assets/images/botCards/94.png";
+import NinetyFive from "../../../assets/images/botCards/95.png";
 import styles from "../cards.module.scss";
-import { IBotFiveCards, IMidFiveCards } from "../../../interfaces/components";
+import { IBotFiveCards } from "../../../interfaces/components";
 
 export default function FiveCardsMid() {
   const cards: Array<IBotFiveCards> = [
@@ -17,30 +19,45 @@ export default function FiveCardsMid() {
       style: styles.cardRetail,
     },
     {
-      backGroundImage: PercentageGrad,
+      backGroundImage: NinetyFive,
       url: "/",
-      title: "95%",
+      title: (
+        <span className={styles.percentageValue}>
+          95<p className={styles.percentageLow}>%</p>
+        </span>
+      ),
       title_two: null,
       subtext:
         "Увеличение зрительного внимания по сравнению с другими каналами",
       style: styles.cardPercentage,
+      titleStyle: styles.titleCentered,
     },
     {
-      backGroundImage: PercentageGrad,
+      backGroundImage: NinetyFour,
       url: "/",
-      title: "94%",
+      title: (
+        <span className={styles.percentageValue}>
+          94<p className={styles.percentageLow}>%</p>
+        </span>
+      ),
       title_two: null,
       subtext: "Более высокий коэффициент конверсии для продуктов с AR/3D",
       style: styles.cardPercentage,
+      titleStyle: styles.titleCentered,
     },
     {
       backGroundImage: PercentageGrad,
       url: "/",
-      title: "100 million",
+      title: (
+        <span className={styles.percentageValue}>
+          100<p className={styles.percentageLow}>million</p>
+        </span>
+      ),
       title_two: null,
       subtext:
         "Потребители совершают покупки с помощью AR онлайн и в магазинах",
       style: styles.cardPercentage,
+      titleStyle: styles.titleCentered,
     },
     {
       backGroundImage: ClientLoyalty,
@@ -66,7 +83,11 @@ export default function FiveCardsMid() {
     <div className={`${styles.cardsContainer} ${styles.containerThird}`}>
       {cards.map((a: IBotFiveCards, key: number) => (
         <div className={a.style} key={key} tabIndex={key}>
-          <span className={styles.title}>
+          <span
+            className={`${styles.title} ${
+              typeof a.titleStyle == "undefined" ? "" : a.titleStyle
+            }`}
+          >
             <span>{a.title}</span>
             {"\n"}
             {a.title_two !== null && (

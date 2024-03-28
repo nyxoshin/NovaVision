@@ -1,5 +1,108 @@
 @use "/src/index.scss" as index;
 
+@media (max-width: 762px) {
+  .cardsContainer {
+    margin: 60px 0px !important;
+
+    & > .card {
+      width: 100% !important;
+      height: 80vh !important;
+      & > span {
+        top: 20px !important;
+        left: 20px !important;
+        // right: 20px !important;
+        max-width: 95% !important;
+        font-size: 5.58vw !important;
+        line-height: 5.72vw !important;
+      }
+    }
+    & > .cardEven {
+      width: 100% !important;
+      height: 80vh !important;
+      & > img {
+        object-fit: cover;
+      }
+      & > .buttonDemo {
+        justify-content: center !important;
+        text-align: center !important;
+        align-items: center !important;
+        width: 65% !important;
+        padding: 31px 0px !important;
+
+        font-size: 4.18vw !important;
+      }
+      & > .title {
+        font-size: 4.65vw !important;
+      }
+    }
+  }
+
+  .containerThird {
+    flex-wrap: wrap;
+    & > :nth-child(2) {
+      width: 48.76% !important;
+    }
+    & > :nth-child(3) {
+      width: 48.76% !important;
+    }
+    & > div {
+      width: 100% !important;
+      height: 80vh !important;
+      & > img {
+        object-fit: cover;
+      }
+    }
+    & > .cardLoyal {
+      & > .title {
+        & > span {
+          font-size: 6.51vw !important;
+          line-height: 6.51vw !important;
+        }
+        & > p {
+          margin: 20px 0px;
+          font-size: 3.25vw !important;
+          line-height: 4.55vw !important;
+          width: 100% !important;
+          max-width: unset !important;
+        }
+      }
+    }
+
+    & > .cardPercentage {
+      height: 40vh !important;
+      & > .title {
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        padding: 0px 12px;
+        // height: 50% !important;
+        & > span {
+          & > .percentageValue {
+            display: flex !important;
+            height: fit-content !important;
+            max-height: fit-content !important;
+            font-size: 8.83vw !important;
+            line-height: 8.83vw !important;
+            font-weight: 700;
+            & > .percentageLow {
+              font-weight: 700;
+              font-size: 5.58vw !important;
+              line-height: 5.58vw !important;
+            }
+          }
+        }
+        & > .subtext {
+          // font-family: "Onest";
+          opacity: 65% !important;
+          margin: 10px 0px !important;
+          font-size: 3.25vw !important;
+          line-height: 3.9vw !important;
+          font-weight: 700 !important;
+        }
+      }
+    }
+  }
+}
 .cardsContainer {
   margin: 100px 0px;
   width: 100%;
@@ -83,6 +186,8 @@
     }
 
     & > .buttonDemo {
+      cursor: pointer;
+      text-decoration: none;
       @include index.bright-button;
       display: flex;
       width: fit-content;
@@ -133,6 +238,18 @@
       height: 100%;
     }
 
+    & > .titleCentered {
+      display: flex !important;
+      width: 100% !important;
+      height: 100% !important;
+      top: 0 !important;
+      left: 0 !important;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0px 7.39%;
+    }
+
     & > .title {
       white-space: pre-wrap;
 
@@ -149,6 +266,24 @@
       top: 32px;
       //   right: 0;
       margin: 0 auto;
+
+      & > span {
+        width: fit-content;
+        & > .percentageValue {
+          display: flex;
+          height: fit-content;
+          flex-direction: row;
+          align-items: baseline;
+          font-size: 120px !important;
+          line-height: 120px !important;
+          & > .percentageLow {
+            margin: unset;
+            display: flex;
+            font-size: 32px;
+            line-height: 32px;
+          }
+        }
+      }
 
       & > .title_two {
         font-size: 32px;
@@ -168,6 +303,7 @@
 
   & > .cardPercentage {
     width: 23%;
+    overflow: hidden;
 
     & > .title {
       white-space: pre-wrap;

@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import LogoIconSmall from "../assets/icons/svg/logoIcon_Small";
 import PhoneIcon from "../assets/icons/svg/phoneSvg";
 import MailIcon from "../assets/icons/svg/mailIcon";
+import ArrowDown from "../assets/icons/svg/arrowDown";
 // import "../assets/Styles/Index.scss";
 
 function NavBar() {
@@ -38,6 +39,9 @@ function NavBar() {
       </div>
       <div className={styles.footer}>
         <LogoIconSmall />
+        <button className={styles.ourProjects}>
+          Наши проекты <ArrowDown />
+        </button>
         <div className={styles.contactUs}>
           <button>Связаться с нами</button>
           <div className={styles.directContacts}>
@@ -52,7 +56,9 @@ function NavBar() {
           </div>
           <span className={styles.directContacts}>
             <div className={styles.phones}>
-              <span>ИП Воронцов Даниил Алексеевич | 2024</span>
+              <span className={styles.seo}>
+                ИП Воронцов Даниил Алексеевич | 2024
+              </span>
             </div>
           </span>
         </div>

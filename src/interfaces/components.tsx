@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 
 export interface ISuspenceCustom {
   children: ReactNode;
@@ -24,8 +24,9 @@ export interface IMidFiveCards {
 export interface IBotFiveCards {
   backGroundImage: string;
   url: string;
-  title: string;
+  title: string | ReactElement;
   title_two: string | null;
   subtext: string | null;
   style: string;
+  titleStyle?: string;
 }

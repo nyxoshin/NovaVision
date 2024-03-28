@@ -6,7 +6,7 @@ import FiveCardsBottom from "../../components/mainPage/fiveCardsBottom";
 
 export default function MainPage() {
   //   console.log("this is the main page");
-  console.log("check type", typeof styles.heading);
+  // console.log("check type", typeof styles.heading);
   return (
     <div className={styles.mainPage}>
       <img className={styles.chairy} src={chairy} alt="chair" />

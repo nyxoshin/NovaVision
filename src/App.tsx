@@ -7,19 +7,23 @@ import Loader from "./components/Loader";
 import ARButton from "./components/ARButton";
 import isMobile from "./components/checkDevice";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { useQuery } from "react-query";
+import { useSearchParams } from "react-router-dom";
 // import * from "./models/barfits_final"
 
-export default function App() {
-  const gltf = useLoader(GLTFLoader, "./models/barfits_final.gltf");
+interface IApp {
+  name: string;
+}
+
+export default function App({ name }: IApp) {
+  console.log("qwewqwewqeq", name);
+  const gltf = useLoader(GLTFLoader, `../public/models/${name}`);
 
   const el = document.getElementById("canvasToTrack");
 
   if (el) {
-    el.addEventListener("123321", () => {
-      // console.log("did loaded");
-    });
+    el.addEventListener("123321", () => {});
   }
-  // console.log("urgeh", isMobile.Windows(), navigator.userAgent);
 
   return (
     <div className="canvas--container">

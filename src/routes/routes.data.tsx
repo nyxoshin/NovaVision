@@ -6,6 +6,8 @@ import NavBar from "./root";
 // import Consultation from "../pages/consultations/id/{id}";
 import ErrorPage from "../pages/errorPage";
 import MainPage from "../pages/main";
+import App from "../App";
+import Application from "../pages/application/{id}";
 
 export const routes = createBrowserRouter([
   {
@@ -20,73 +22,25 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Navigate to={"main"} replace={true} />,
-        errorElement: (
-          <ErrorPage errorText={"Ошибка получения данных о консультациях"} />
-        ),
+        errorElement: <ErrorPage errorText={"Ошибка"} />,
       },
       {
         path: "main",
         element: <MainPage />,
-        errorElement: (
-          <ErrorPage errorText={"Ошибка получения данных о консультациях"} />
-        ),
+        errorElement: <ErrorPage errorText={"Ошибка"} />,
       },
       // {
-      //   path: "lk/consultations/new",
-      //   element: <NewConsultations />,
-      //   errorElement: <ErrorPage children={"Ошибка создания консультации"} />,
-      // },
-      // {
-      //   path: "lk/account",
-      //   element: <Account />,
+      //   path: "item/:id",
+      //   element: <Application />,
       //   errorElement: (
-      //     <ErrorPage
-      //       children={"Ошибка получения данных аккаунта пользователя"}
-      //     />
-      //   ),
-      // },
-      // {
-      //   path: "lk/about",
-      //   element: <About />,
-      //   errorElement: (
-      //     <ErrorPage children={"Ошибка получения данных о сервисе"} />
-      //   ),
-      // },
-      // {
-      //   path: "lk",
-      //   element: <Navigate to={"/"} replace={true} />,
-      //   errorElement: (
-      //     <ErrorPage children={"Ошибка получения данных о консультациях"} />
-      //   ),
-      // },
-      // {
-      //   path: "login",
-      //   element: <Navigate to={"/"} replace={true} />,
-      //   errorElement: (
-      //     <ErrorPage children={"Ошибка получения данных о консультациях"} />
-      //   ),
-      // },
-      // {
-      //   path: "*",
-      //   element: <Navigate to={"/"} replace={true} />,
-      //   errorElement: (
-      //     <ErrorPage children={"Ошибка получения данных о консультациях"} />
-      //   ),
-      // },
-      // {
-      //   element: <Consultation />,
-      //   path: "lk/consultations/item/:id",
-      //   errorElement: (
-      //     <ErrorPage children={"Ошибка получения данных о консультации"} />
-      //   ),
-      // },
-      // {
-      //   element: <NewConsultations />,
-      //   path: "lk/consultations/item/:id/edit",
-      //   errorElement: (
-      //     <ErrorPage children={"Ошибка получения данных о консультации"} />
+      //     <ErrorPage errorText={"Ошибка загрузки просмотровщика"} />
       //   ),
       // },
     ],
+  },
+  {
+    path: "item/:id",
+    element: <Application />,
+    errorElement: <ErrorPage errorText={"Ошибка загрузки просмотровщика"} />,
   },
 ]);
