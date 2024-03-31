@@ -8,9 +8,8 @@ import Loader from "./components/Loader";
 import ARButton from "./components/ARButton";
 import isMobile from "./components/checkDevice";
 
-export default function App(name) {
-  console.log("namenamenamenamenamename", name);
-  const gltf = useLoader(GLTFLoader, `./models/${name.name}.gltf`);
+export default function Table() {
+  const gltf = useLoader(GLTFLoader, `./models/table_volan.gltf`);
 
   const el = document.getElementById("canvasToTrack");
 

@@ -7,8 +7,8 @@ import AppOne from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AppOne />
-    {/* <Router /> */}
+    {/* <AppOne /> */}
+    <Router />
     {/* <div>123</div> */}
   </React.StrictMode>
 );

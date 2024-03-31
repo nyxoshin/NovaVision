@@ -6,27 +6,36 @@ import NavBar from "./root";
 // import Consultation from "../pages/consultations/id/{id}";
 import ErrorPage from "../pages/errorPage";
 import Application from "../pages/application/{id}";
+import Monitor from "../Monitor";
+import Barfits from "../Barfits";
+import Table from "../Table";
 
 export const routes = createBrowserRouter([
   {
-    path: "/",
-    element: <NavBar />,
+    path: "/Monitor",
+    element: <Monitor />,
     errorElement: (
       <div>
         <ErrorPage />
       </div>
     ),
-    children: [
-      {
-        path: "/:id",
-        element: <Application />,
-        errorElement: <ErrorPage errorText={"Ошибка"} />,
-      },
-    ],
   },
   {
-    path: "item/:id",
-    element: <Application />,
-    errorElement: <ErrorPage errorText={"Ошибка загрузки просмотровщика"} />,
+    path: "/Barfits",
+    element: <Barfits />,
+    errorElement: (
+      <div>
+        <ErrorPage />
+      </div>
+    ),
+  },
+  {
+    path: "/Table",
+    element: <Table />,
+    errorElement: (
+      <div>
+        <ErrorPage />
+      </div>
+    ),
   },
 ]);
