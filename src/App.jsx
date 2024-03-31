@@ -8,8 +8,9 @@ import Loader from "./components/Loader";
 import ARButton from "./components/ARButton";
 import isMobile from "./components/checkDevice";
 
-export default function App() {
-  const gltf = useLoader(GLTFLoader, "./models/barfits_final.gltf");
+export default function App(name) {
+  console.log("namenamenamenamenamename", name);
+  const gltf = useLoader(GLTFLoader, `./models/${name.name}.gltf`);
 
   const el = document.getElementById("canvasToTrack");
 
@@ -18,7 +19,6 @@ export default function App() {
       console.log("did loaded");
     });
   }
-  console.log("urgeh", isMobile.Windows(), navigator.userAgent);
 
   return (
     <div className="canvas--container">
