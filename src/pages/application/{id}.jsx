@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { Stage, OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import "./styles/app.css";
-import SmartSuspense from "./components/SuspenseCustom";
-import Loader from "./components/Loader";
-import ARButton from "./components/ARButton";
-import isMobile from "./components/checkDevice";
-import { useParams } from "react-router-dom";
+import "../../styles/app.css";
+import SmartSuspense from "../../components/SuspenseCustom";
+import Loader from "../../components/Loader";
+import ARButton from "../../components/ARButton";
+import isMobile from "../../components/checkDevice";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
-export default function Monitor() {
-  const gltf = useLoader(GLTFLoader, `./models/Monitor.gltf`);
+export default function Application() {
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams(); // Query параметры
+  console.log("idchecewg", searchParams.get("id"));
+  useEffect(() => {
+    const a = searchParams.get("id");
+    if (a == null) {
+      navigate(`/Error`);
+    }
+  }, [searchParams]);
+  const gltf = useLoader(GLTFLoader, `./models/${searchParams.get("id")}.gltf`);
 
   const el = document.getElementById("canvasToTrack");
 

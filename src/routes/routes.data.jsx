@@ -12,6 +12,15 @@ import Table from "../Table";
 
 export const routes = createBrowserRouter([
   {
+    path: "/",
+    element: <Application />,
+    errorElement: (
+      <div>
+        <ErrorPage />
+      </div>
+    ),
+  },
+  {
     path: "/Monitor",
     element: <Monitor />,
     errorElement: (
