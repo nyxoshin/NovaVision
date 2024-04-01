@@ -1,8 +1,6 @@
 const isMobile = {
   Android: function () {
-    return (
-      navigator.userAgent.match(/Android/i)
-    );
+    return navigator.userAgent.match(/Android/i);
   },
   BlackBerry: function () {
     return navigator.userAgent.match(/BlackBerry/i);
@@ -14,10 +12,7 @@ const isMobile = {
     return navigator.userAgent.match(/Opera Mini/i);
   },
   Windows: function () {
-    return (
-      navigator.userAgent.match(/Windows/i) ||
-      navigator.userAgent.match(/AppleWebKit/i)
-    );
+    return navigator.userAgent.match(/Windows/i);
   },
   any: function () {
     return (
