@@ -13,12 +13,12 @@ export default function ARButton() {
     if (isMobile.Android() !== null) {
       setAlertOpenAndroid(true);
       if (alertOpenAndroid === true) {
-          setAlertOpenAndroid(false);
+        setAlertOpenAndroid(false);
       }
     } else if (isMobile.Windows() !== null) {
       setAlertOpenWindows(true);
       if (alertOpenWindows === true) {
-          setAlertOpenWindows(false);
+        setAlertOpenWindows(false);
       }
     }
     // window.open(model_url);
@@ -30,7 +30,7 @@ export default function ARButton() {
         <div className="container--arbutton">
           <a
             rel="ar"
-            href="./models/Apple/AR_barfits.usdz"
+            href="./models/Apple/monitor.usdz"
             className="link--arbutton"
           >
             <img
