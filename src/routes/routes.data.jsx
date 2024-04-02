@@ -20,31 +20,4 @@ export const routes = createBrowserRouter([
       </div>
     ),
   },
-  {
-    path: "/Monitor",
-    element: <Monitor />,
-    errorElement: (
-      <div>
-        <ErrorPage />
-      </div>
-    ),
-  },
-  {
-    path: "/Barfits",
-    element: <Barfits />,
-    errorElement: (
-      <div>
-        <ErrorPage />
-      </div>
-    ),
-  },
-  {
-    path: "/Table",
-    element: <Table />,
-    errorElement: (
-      <div>
-        <ErrorPage />
-      </div>
-    ),
-  },
 ]);

@@ -4,7 +4,7 @@ import "./style.css";
 import isMobile from "../checkDevice";
 import CloseIcon from "../../assets/icons/svg/closeButton";
 
-export default function ARButton() {
+export default function ARButton({ name }) {
   const [alertOpenWindows, setAlertOpenWindows] = useState(false);
   console.log("what dafq", alertOpenWindows);
   const [alertOpenAndroid, setAlertOpenAndroid] = useState(false);
@@ -23,14 +23,14 @@ export default function ARButton() {
     }
     // window.open(model_url);
   }
-  console.log("check the platform", isMobile.Windows());
+  console.log("check the platform", name);
   return (
     <>
       {isMobile.iOS() !== null && (
         <div className="container--arbutton">
           <a
             rel="ar"
-            href="./models/Apple/monitor.usdz"
+            href={`./models/Apple/${name}.usdz`}
             className="link--arbutton"
           >
             <img

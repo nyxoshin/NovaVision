@@ -32,7 +32,7 @@ export default function Application() {
   return (
     <div className="canvas--container">
       <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
-        <ARButton />
+        <ARButton name={searchParams.get("id")} />
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}
           shadows
