@@ -32,17 +32,7 @@ export default function Application() {
 
   return (
     <div className="canvas--container">
-      <model-viewer
-        src="https://cdn.glitch.com/36cb8393-65c6-408d-a538-055ada20431b/Astronaut.glb?1542147958948"
-        ios-src="https://cdn.glitch.com/36cb8393-65c6-408d-a538-055ada20431b/Astronaut.usdz?v=1569545377878"
-        poster="https://cdn.glitch.com/36cb8393-65c6-408d-a538-055ada20431b%2Fposter-astronaut.png?v=1599079951717"
-        alt="A 3D model of an astronaut"
-        shadow-intensity="1"
-        camera-controls
-        auto-rotate
-        ar
-      ></model-viewer>
-      {/* <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
+      <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
         <ARButton name={searchParams.get("id")} />
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}
@@ -81,7 +71,7 @@ export default function Application() {
           <directionalLight position={[-3.3, -0.1, -4.4]} castShadow />
           <ambientLight intensity={0.6} />
         </Canvas>
-      </SmartSuspense> */}
+      </SmartSuspense>
     </div>
   );
 }
