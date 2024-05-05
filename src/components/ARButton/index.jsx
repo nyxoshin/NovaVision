@@ -53,7 +53,7 @@ export default function ARButton({ name }) {
               <img src="./images/logo-ar.svg" width="50px" height="50px" />
             </a>
           </div> */}
-          <div class="container--arbutton">
+          <div className="container--arbutton">
             <button className="link--arbutton" onClick={() => OpenUrl()}>
               <img
                 src="./images/logo-ar.svg"
@@ -91,7 +91,7 @@ export default function ARButton({ name }) {
               <img src="./images/logo-ar.svg" width="50px" height="50px" />
             </a>
           </div> */}
-          <div class="container--arbutton">
+          <div className="container--arbutton">
             <button className="link--arbutton" onClick={() => OpenUrl()}>
               <img
                 src="./images/logo-ar.svg"
