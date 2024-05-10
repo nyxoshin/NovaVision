@@ -9,11 +9,21 @@ import Application from "../pages/application/{id}";
 import Monitor from "../Monitor";
 import Barfits from "../Barfits";
 import Table from "../Table";
+import AndroidViewer from "../pages/androidViewer/{id}";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <Application />,
+    errorElement: (
+      <div>
+        <ErrorPage />
+      </div>
+    ),
+  },
+  {
+    path: "/testable",
+    element: <AndroidViewer />,
     errorElement: (
       <div>
         <ErrorPage />
