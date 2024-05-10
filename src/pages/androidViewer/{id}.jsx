@@ -27,13 +27,14 @@ export default function AndroidViewer() {
   const gltf = useLoader(GLTFLoader, `./models/${searchParams.get("id")}.gltf`);
 
   const el = document.getElementById("canvasToTrack");
-  console.log("");
 
   if (el) {
     el.addEventListener("123321", () => {
       console.log("did loaded");
     });
   }
+
+  console.log("is it testable page?");
 
   return (
     <div className={styles.modelViewer}>

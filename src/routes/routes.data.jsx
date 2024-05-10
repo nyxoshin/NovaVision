@@ -30,4 +30,9 @@ export const routes = createBrowserRouter([
       </div>
     ),
   },
+  {
+    path: "/damn",
+    element: <div> ТЕСТОВЫЙ ПЕЙДЖ </div>,
+    errorElement: <div>ТЕСТОВЫЙ ПЕЙДЖ ЗАФЕЙЛИЛСЯ</div>,
+  },
 ]);
