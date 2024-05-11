@@ -11,6 +11,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import { ModelViewerElement } from "@google/model-viewer/lib/model-viewer";
 // import "@google/model-viewer/dist/model-viewer-legacy";
 import styles from "../androidViewer/AVStyle.module.css";
+import Nova from "../../assets/images/NovaLogo.png";
 // import
 
 export default function AndroidViewer() {
@@ -24,7 +25,10 @@ export default function AndroidViewer() {
     }
   }, [searchParams]);
 
-  const gltf = useLoader(GLTFLoader, `./models/${searchParams.get("id")}.gltf`);
+  const gltf = useLoader(
+    GLTFLoader,
+    `./models/models_android/${searchParams.get("id")}.glb`
+  );
 
   const el = document.getElementById("canvasToTrack");
 
@@ -40,11 +44,11 @@ export default function AndroidViewer() {
     <div className={styles.modelViewer}>
       <model-viewer
         // className={styles.modelViewerCheck}
-        styles={{ width: "100vw", height: "100vh" }}
-        src="https://cdn.glitch.com/36cb8393-65c6-408d-a538-055ada20431b/Astronaut.glb?1542147958948"
-        ios-src="https://cdn.glitch.com/36cb8393-65c6-408d-a538-055ada20431b/Astronaut.usdz?v=1569545377878"
-        poster="https://cdn.glitch.com/36cb8393-65c6-408d-a538-055ada20431b%2Fposter-astronaut.png?v=1599079951717"
-        alt="A 3D model of an astronaut"
+        // styles={{ width: "100vw", height: "100vh" }}
+        src={`./models/models_android/${searchParams.get("id")}.glb`}
+        ios-src={`./models/Apple/${searchParams.get("id")}.usdz`}
+        poster={Nova}
+        alt="A 3D model"
         shadow-intensity="1"
         camera-controls
         auto-rotate
