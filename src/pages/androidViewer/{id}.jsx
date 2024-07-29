@@ -54,7 +54,7 @@ export default function AndroidViewer() {
         auto-rotate
         ar
       >
-        <button slot="ar-button" id="ar-button">
+        <button slot="ar-button" id="ar-button" className="link--arbutton">
           <img
             src="./images/logo-ar.svg"
             width="50px"
