@@ -55,8 +55,19 @@ export default function AndroidViewer() {
         ar
       >
         <button slot="ar-button" id="ar-button">
-          View in your space
+          <img
+            src="./images/logo-ar.svg"
+            width="50px"
+            height="50px"
+            className="arbutton--img"
+          />
         </button>
+
+        {/* <ARButton
+          slot="ar-button"
+          id="ar-button"
+          name={searchParams.get("id")}
+        /> */}
       </model-viewer>
     </div>
     // <div className="canvas--container">
