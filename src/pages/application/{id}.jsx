@@ -33,9 +33,9 @@ export default function Application() {
   return (
     <div className="canvas--container">
       <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
-        {/* <ARButton name={searchParams.get("id")} /> */}
+        <ARButton name={searchParams.get("id")} />
 
-        <button
+        {/* <button
           slot="ar-button"
           id="ar-button"
           className="link--arbutton--android"
@@ -47,7 +47,7 @@ export default function Application() {
             className="arbutton--img"
           />
           <span className="linkButtonName">Смотреть в пространстве</span>
-        </button>
+        </button> */}
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}
           shadows
