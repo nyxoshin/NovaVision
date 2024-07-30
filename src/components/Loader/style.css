@@ -33,7 +33,7 @@
   }
 }
 
-.container--loader div:nth-child(1) {
+/* .container--loader div:nth-child(1) {
   animation-delay: 200ms;
 }
 .container--loader div:nth-child(2) {
@@ -59,4 +59,4 @@
 }
 .container--loader div:nth-child(9) {
   animation-delay: 1800ms;
-}
+} */

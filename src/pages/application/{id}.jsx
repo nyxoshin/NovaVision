@@ -76,7 +76,7 @@ export default function Application() {
             autoRotateSpeed={1}
             enableZoom={true}
             minDistance={5}
-            maxDistance={30}
+            maxDistance={50}
             zoomToCursor={false}
             makeDefault
             maxPolarAngle={Math.PI / 2}
