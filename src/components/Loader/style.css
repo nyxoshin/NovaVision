@@ -1,20 +1,20 @@
 .container--loader {
-  width: 100vw;
-  height: 100vw;
+  width: 100%;
+  height: 100%;
   background-color: #ddd;
 }
 
-.container--loader div {
+.container--loader svg {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 0px;
-  height: 0px;
-  border-radius: 100%;
-  opacity: 0;
-  border: 5px solid gray;
-  animation: anim 4s infinite linear;
+  /* width: 0px;
+  height: 0px; */
+  /* border-radius: 100%; */
+  /* opacity: 0; */
+  /* border: 5px solid gray; */
+  /* animation: anim 4s infinite linear; */
 }
 
 @keyframes anim {

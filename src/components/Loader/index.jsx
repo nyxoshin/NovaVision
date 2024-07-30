@@ -1,8 +1,11 @@
-import './style.css'
+import "./style.css";
+import LoaderPicture from "../../assets/icons/svg/loaderPicture";
 
 export default function Loader() {
   return (
-    <div className='container--loader'>
+    <div className="container--loader">
+      <LoaderPicture />
+      {/* <div></div>
       <div></div>
       <div></div>
       <div></div>
@@ -10,8 +13,7 @@ export default function Loader() {
       <div></div>
       <div></div>
       <div></div>
-      <div></div>
-      <div></div>
+      <div></div> */}
     </div>
   );
 }
