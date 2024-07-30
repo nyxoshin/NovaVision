@@ -81,6 +81,7 @@
   transition: all 0.2s ease-out;
   /* width: 88px;
   height: 88px; */
+  width: fit-content;
   left: 0;
   right: 0;
   margin: auto;
