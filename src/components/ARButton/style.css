@@ -72,6 +72,37 @@
     -6px -6px 10px rgba(255, 255, 255, 0.5),
     6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
 }
+.link--arbutton--android {
+  position: absolute;
+  bottom: 30px;
+  border: unset;
+  display: flex;
+  flex-direction: row;
+  transition: all 0.2s ease-out;
+  /* width: 88px;
+  height: 88px; */
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 5px 5px;
+  justify-content: center;
+  align-items: center;
+  /* gap: 5px; */
+  border-radius: 100px;
+  background-color: #f1f1f1;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.7),
+    -6px -6px 10px rgba(255, 255, 255, 0.5),
+    6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
+}
+.linkButtonName {
+  margin: 0px 8px 0px 10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 17.92px;
+  font-family: "PT Mono", monospace;
+}
 .link--arbutton:hover {
   box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
     -2px -2px 4px rgba(255, 255, 255, 0.4),
