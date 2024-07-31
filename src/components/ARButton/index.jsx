@@ -67,13 +67,19 @@ export default function ARButton({ name }) {
             </a>
           </div> */}
           <div className="container--arbutton">
-            <button className="link--arbutton" onClick={() => OpenUrl()}>
+            <button
+              slot="ar-button"
+              id="ar-button"
+              className="link--arbutton--android"
+              onClick={() => OpenUrl()}
+            >
               <img
                 src="./images/logo-ar.svg"
                 width="50px"
                 height="50px"
                 className="arbutton--img"
               />
+              <span className="linkButtonName">Смотреть в пространстве</span>
             </button>
             {alertOpenAndroid && (
               <div className="openIosAlert">
@@ -105,13 +111,19 @@ export default function ARButton({ name }) {
             </a>
           </div> */}
           <div className="container--arbutton">
-            <button className="link--arbutton" onClick={() => OpenUrl()}>
+            <button
+              slot="ar-button"
+              id="ar-button"
+              className="link--arbutton--android"
+              onClick={() => OpenUrl()}
+            >
               <img
                 src="./images/logo-ar.svg"
                 width="50px"
                 height="50px"
                 className="arbutton--img"
               />
+              <span className="linkButtonName">Смотреть в пространстве</span>
             </button>
             {alertOpenWindows && (
               <div className="openIosAlert">
