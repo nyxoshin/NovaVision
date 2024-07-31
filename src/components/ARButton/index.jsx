@@ -26,21 +26,19 @@ export default function ARButton({ name }) {
   return (
     <>
       {isMobile.iOS() !== null && (
-        <div className="container--arbutton">
-          <a
-            rel="ar"
-            href={`./models/Apple/${name}.usdz`}
-            className="link--arbutton--android"
-          >
-            <img
-              src="./images/logo-ar.svg"
-              width="50px"
-              height="50px"
-              className="arbutton--img"
-            />
-            <span className="linkButtonName">Смотреть в пространстве</span>
-          </a>
-        </div>
+        <a
+          rel="ar"
+          href={`./models/Apple/${name}.usdz`}
+          className="link--arbutton--android"
+        >
+          <img
+            src="./images/logo-ar.svg"
+            width="50px"
+            height="50px"
+            className="arbutton--img"
+          />
+          <span className="linkButtonName">Смотреть в пространстве</span>
+        </a>
       )}
       {isMobile.Android() !== null && (
         <>
