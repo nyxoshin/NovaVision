@@ -12,12 +12,15 @@
   z-index: 999;
 }
 .openIosAlert {
+  z-index: 999;
   cursor: default;
   position: absolute;
-  bottom: 20%;
-  left: 20px;
-  max-width: 40vw;
-  min-width: 25vw;
+  bottom: 15%;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
+  max-width: 420px;
+  /* min-width: 25vw; */
   width: fit-content;
   padding: 40px;
   display: flex;
@@ -42,12 +45,14 @@
   background-color: transparent;
 }
 .openIosAlert h3 {
+  font-family: "Onest";
   font-size: 26px;
-  font-weight: 900;
+  font-weight: 700;
   margin: unset;
   margin-bottom: 10px;
 }
 .openIosAlert span {
+  font-family: "PT Mono", monospace;
   font-size: 18px;
   opacity: 60%;
 }
@@ -136,9 +141,12 @@
     left: 10px;
   }
   .openIosAlert h3 {
+    font-family: "Onest";
+    font-weight: 700;
     font-size: 3vw;
   }
   .openIosAlert span {
+    font-family: "PT Mono", monospace;
     font-size: 2vw;
   }
 }
@@ -148,9 +156,12 @@
     min-width: calc(100vw - 20px) !important;
   }
   .openIosAlert h3 {
+    font-family: "Onest";
+    font-weight: 700;
     font-size: 6vw;
   }
   .openIosAlert span {
+    font-family: "PT Mono", monospace;
     font-size: 4vw;
   }
 }
