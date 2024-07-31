@@ -6,7 +6,7 @@ const isMobile = {
     return navigator.userAgent.match(/BlackBerry/i);
   },
   iOS: function () {
-    return navigator.userAgent.match(/iPhone|iPad/i);
+    return navigator.userAgent.match(/iPhone|iPad|Macintosh/i);
   },
   Opera: function () {
     return navigator.userAgent.match(/Opera Mini/i);
