@@ -31,8 +31,8 @@ export const routes = createBrowserRouter([
     ),
   },
   {
-    path: "/damn",
-    element: <div> ТЕСТОВЫЙ ПЕЙДЖ </div>,
-    errorElement: <div>ТЕСТОВЫЙ ПЕЙДЖ ЗАФЕЙЛИЛСЯ</div>,
+    path: "/test",
+    element: <div> TESTING PAGE </div>,
+    errorElement: <div>TESTING PAGE FAILED</div>,
   },
 ]);

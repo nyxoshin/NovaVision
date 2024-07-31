@@ -9,7 +9,10 @@ import ARButton from "./components/ARButton";
 import isMobile from "./components/checkDevice";
 
 export default function Barfits() {
-  const gltf = useLoader(GLTFLoader, `./models/barfits_final.gltf`);
+  const gltf = useLoader(
+    GLTFLoader,
+    `./models/models_android/barfits_final.glb`
+  );
 
   const el = document.getElementById("canvasToTrack");
 

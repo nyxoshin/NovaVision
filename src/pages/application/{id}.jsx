@@ -20,7 +20,10 @@ export default function Application() {
     }
   }, [searchParams]);
 
-  const gltf = useLoader(GLTFLoader, `./models/${searchParams.get("id")}.gltf`);
+  const gltf = useLoader(
+    GLTFLoader,
+    `./models/models_android/${searchParams.get("id")}.glb`
+  );
 
   const el = document.getElementById("canvasToTrack");
 

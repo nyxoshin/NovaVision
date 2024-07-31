@@ -10,7 +10,10 @@ import isMobile from "./components/checkDevice";
 
 export default function App(name) {
   console.log("namenamenamenamenamename", name);
-  const gltf = useLoader(GLTFLoader, `./models/${name.name}.gltf`);
+  const gltf = useLoader(
+    GLTFLoader,
+    `./models/models_android/${name.name}.glb`
+  );
 
   const el = document.getElementById("canvasToTrack");
 

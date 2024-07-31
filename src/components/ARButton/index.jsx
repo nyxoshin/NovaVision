@@ -8,7 +8,6 @@ export default function ARButton({ name }) {
   const [alertOpenWindows, setAlertOpenWindows] = useState(false);
   console.log("what dafq", alertOpenWindows);
   const [alertOpenAndroid, setAlertOpenAndroid] = useState(false);
-  var model_url = `intent://arvr.google.com/scene-viewer/1.0?file=${"./models/barfits_final.gltf"}#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;`;
   function OpenUrl() {
     if (isMobile.Android() !== null) {
       setAlertOpenAndroid(true);

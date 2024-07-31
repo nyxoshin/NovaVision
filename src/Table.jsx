@@ -9,7 +9,7 @@ import ARButton from "./components/ARButton";
 import isMobile from "./components/checkDevice";
 
 export default function Table() {
-  const gltf = useLoader(GLTFLoader, `./models/table_volan.gltf`);
+  const gltf = useLoader(GLTFLoader, `./models/models_android/table_volan.glb`);
 
   const el = document.getElementById("canvasToTrack");
 

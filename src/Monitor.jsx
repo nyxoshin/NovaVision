@@ -10,7 +10,7 @@ import isMobile from "./components/checkDevice";
 import { useParams } from "react-router-dom";
 
 export default function Monitor() {
-  const gltf = useLoader(GLTFLoader, `./models/Monitor.gltf`);
+  const gltf = useLoader(GLTFLoader, `./models/models_android/Monitor.glb`);
 
   const el = document.getElementById("canvasToTrack");
 
