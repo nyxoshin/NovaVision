@@ -74,6 +74,7 @@
 }
 .link--arbutton--android {
   position: absolute;
+  color: inherit;
   z-index: 999;
   bottom: 30px;
   border: unset;
