@@ -37,7 +37,6 @@ export default function Application() {
     <div className="canvas--container">
       <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
         <ARButton name={searchParams.get("id")} />
-
         {/* <button
           slot="ar-button"
           id="ar-button"

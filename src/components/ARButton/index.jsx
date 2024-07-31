@@ -30,7 +30,7 @@ export default function ARButton({ name }) {
           <a
             rel="ar"
             href={`./models/Apple/${name}.usdz`}
-            className="link--arbutton"
+            className="link--arbutton--android"
           >
             <img
               src="./images/logo-ar.svg"
@@ -38,6 +38,7 @@ export default function ARButton({ name }) {
               height="50px"
               className="arbutton--img"
             />
+            <span className="linkButtonName">Смотреть в пространстве</span>
           </a>
         </div>
       )}
