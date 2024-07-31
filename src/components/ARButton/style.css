@@ -15,7 +15,7 @@
   z-index: 999;
   cursor: default;
   position: absolute;
-  bottom: 15%;
+  bottom: 94px;
   left: 0px;
   right: 0px;
   margin: 0 auto;
@@ -46,12 +46,14 @@
 }
 .openIosAlert h3 {
   font-family: "Onest";
+  line-height: 120%;
   font-size: 26px;
   font-weight: 700;
   margin: unset;
   margin-bottom: 10px;
 }
 .openIosAlert span {
+  line-height: 130%;
   font-family: "PT Mono", monospace;
   font-size: 18px;
   opacity: 60%;
