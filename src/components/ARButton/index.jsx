@@ -27,7 +27,7 @@ export default function ARButton({ name }) {
     <>
       {isMobile.iOS() !== null && (
         <div className="container--arbutton">
-          <a
+          {/* <a
             rel="ar"
             href={`./models/Apple/${name}.usdz`}
             className="link--arbutton"
@@ -38,6 +38,20 @@ export default function ARButton({ name }) {
               height="50px"
               className="arbutton--img"
             />
+          </a> */}
+
+          <a
+            slot="ar-button"
+            id="ar-button"
+            className="link--arbutton--android"
+          >
+            <img
+              src="./images/logo-ar.svg"
+              width="50px"
+              height="50px"
+              className="arbutton--img"
+            />
+            <span className="linkButtonName">Смотреть в пространстве</span>
           </a>
         </div>
       )}
