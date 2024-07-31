@@ -74,6 +74,7 @@
 }
 .link--arbutton--android {
   position: absolute;
+  z-index: 999;
   bottom: 30px;
   border: unset;
   display: flex;
@@ -98,6 +99,7 @@
     6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
 }
 .linkButtonName {
+  text-decoration: none;
   margin: 0px 8px 0px 10px;
   font-weight: 400;
   font-size: 16px;
