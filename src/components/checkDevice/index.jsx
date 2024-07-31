@@ -6,13 +6,13 @@ const isMobile = {
     return navigator.userAgent.match(/BlackBerry/i);
   },
   iOS: function () {
-    return navigator.userAgent.match(/iPhone|iPad|Macintosh/i);
+    return navigator.userAgent.match(/iPhone|iPad/i);
   },
   Opera: function () {
     return navigator.userAgent.match(/Opera Mini/i);
   },
   Windows: function () {
-    return navigator.userAgent.match(/Windows/i);
+    return navigator.userAgent.match(/Windows|Macintosh/i);
   },
   any: function () {
     return (

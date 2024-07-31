@@ -89,34 +89,33 @@ export default function ARButton({ name }) {
               <img src="./images/logo-ar.svg" width="50px" height="50px" />
             </a>
           </div> */}
-          <div className="container--arbutton">
-            <button className="link--arbutton" onClick={() => OpenUrl()}>
-              <img
-                src="./images/logo-ar.svg"
-                width="50px"
-                height="50px"
-                className="arbutton--img"
-              />
-            </button>
-            {alertOpenWindows && (
-              <div className="openIosAlert">
-                <h3>
-                  Откройте на iOS
-                  <br /> или iPadOS
-                </h3>
-                <span>
-                  К сожалению, для просмотра модели в AR нужно зайти на сайт с
-                  iPhone или iPad
-                </span>
-                <button
-                  className="closeSvg"
-                  onClick={() => setAlertOpenWindows(false)}
-                >
-                  <CloseIcon />
-                </button>
-              </div>
-            )}
-          </div>
+          <button className="link--arbutton--android" onClick={() => OpenUrl()}>
+            <img
+              src="./images/logo-ar.svg"
+              width="34px"
+              height="34px"
+              className="arbutton--img winMacin"
+            />
+            <span className="linkButtonName">Смотреть в пространстве</span>
+          </button>
+          {alertOpenWindows && (
+            <div className="openIosAlert">
+              <h3>
+                Откройте на iOS
+                <br /> или iPadOS
+              </h3>
+              <span>
+                К сожалению, для просмотра модели в AR нужно зайти на сайт с
+                iPhone или iPad
+              </span>
+              <button
+                className="closeSvg"
+                onClick={() => setAlertOpenWindows(false)}
+              >
+                <CloseIcon />
+              </button>
+            </div>
+          )}
         </>
       )}
     </>
