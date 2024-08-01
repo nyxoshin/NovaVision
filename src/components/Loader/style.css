@@ -17,6 +17,17 @@
   /* animation: anim 4s infinite linear; */
 }
 
+.container--loader .progressBar {
+  position: absolute;
+  top: 30%;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
+  width: 30%;
+  max-width: 400px;
+  min-width: 240px;
+}
+
 @keyframes anim {
   0% {
     opacity: 0;
