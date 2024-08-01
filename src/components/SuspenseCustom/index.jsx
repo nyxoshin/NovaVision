@@ -72,6 +72,7 @@ const SmartSuspense = ({
       }
     >
       {isWaitingFallbackMinDurationMs && <PromiseThrower />}
+      {/* {<PromiseThrower />} */}
       {children}
     </Suspense>
   );

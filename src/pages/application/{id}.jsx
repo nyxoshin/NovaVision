@@ -32,24 +32,12 @@ export default function Application() {
       console.log("did loaded");
     });
   }
+  console.log("pagedidload");
 
   return (
     <div className="canvas--container">
       <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
         <ARButton name={searchParams.get("id")} />
-        {/* <button
-          slot="ar-button"
-          id="ar-button"
-          className="link--arbutton--android"
-        >
-          <img
-            src="./images/logo-ar.svg"
-            width="50px"
-            height="50px"
-            className="arbutton--img"
-          />
-          <span className="linkButtonName">Смотреть в пространстве</span>
-        </button> */}
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}
           shadows
