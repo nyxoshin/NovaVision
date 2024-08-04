@@ -7,8 +7,11 @@ import SmartSuspense from "./components/SuspenseCustom";
 import Loader from "./components/Loader";
 import ARButton from "./components/ARButton";
 import isMobile from "./components/checkDevice";
+import { useSearchParams } from "react-router-dom";
 
 export default function Table() {
+  const [searchParams, setSearchParams] = useSearchParams(); // Query параметры
+  const loaderName = searchParams.get("loader");
   const gltf = useLoader(GLTFLoader, `./models/models_android/table_volan.glb`);
 
   const el = document.getElementById("canvasToTrack");
@@ -21,7 +24,10 @@ export default function Table() {
 
   return (
     <div className="canvas--container">
-      <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
+      <SmartSuspense
+        fallback={<Loader loader={loaderName} />}
+        fallbackMinDurationMs={3000}
+      >
         <ARButton />
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}

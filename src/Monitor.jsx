@@ -8,8 +8,11 @@ import Loader from "./components/Loader";
 import ARButton from "./components/ARButton";
 import isMobile from "./components/checkDevice";
 import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export default function Monitor() {
+  const [searchParams, setSearchParams] = useSearchParams(); // Query параметры
+  const loaderName = searchParams.get("loader");
   const gltf = useLoader(GLTFLoader, `./models/models_android/Monitor.glb`);
 
   const el = document.getElementById("canvasToTrack");
@@ -22,7 +25,10 @@ export default function Monitor() {
 
   return (
     <div className="canvas--container">
-      <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
+      <SmartSuspense
+        fallback={<Loader loader={loaderName} />}
+        fallbackMinDurationMs={3000}
+      >
         <ARButton />
         <Canvas
           gl={{ logarithmicDepthBuffer: true }}

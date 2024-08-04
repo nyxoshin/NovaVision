@@ -58,21 +58,12 @@ export default function AndroidViewer() {
           id="ar-button"
           className="link--arbutton--android"
         >
-          {loaderData == "BF" ? (
-            <img
-              src="./images/BFLoader.svg"
-              width="50px"
-              height="50px"
-              className="arbutton--img"
-            />
-          ) : (
-            <img
-              src="./images/logo-ar.svg "
-              width="50px"
-              height="50px"
-              className="arbutton--img"
-            />
-          )}
+          <img
+            src="./images/logo-ar.svg "
+            width="50px"
+            height="50px"
+            className="arbutton--img"
+          />
           <span className="linkButtonName">Смотреть в пространстве</span>
         </button>
       </model-viewer>

@@ -12,6 +12,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 export default function Application() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams(); // Query параметры
+  const loaderName = searchParams.get("loader");
 
   useEffect(() => {
     const a = searchParams.get("id");
@@ -36,7 +37,10 @@ export default function Application() {
 
   return (
     <div className="canvas--container">
-      <SmartSuspense fallback={<Loader />} fallbackMinDurationMs={3000}>
+      <SmartSuspense
+        fallback={<Loader loader={loaderName} />}
+        fallbackMinDurationMs={3000}
+      >
         <ARButton
           name={searchParams.get("id")}
           loader={searchParams.get("loader")}

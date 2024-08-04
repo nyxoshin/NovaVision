@@ -5,10 +5,8 @@ import { LinearProgress } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
-export default function Loader() {
+export default function Loader({ loader }) {
   const [progress, setProgress] = useState(0);
-  console.log("queryParams");
-  const [searchParams, setSearchParams] = useSearchParams(); // Query параметры
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -28,7 +26,7 @@ export default function Loader() {
 
   return (
     <div className="container--loader">
-      <LoaderPicture />
+      {loader == "BF" ? <BFLoader /> : <LoaderPicture />}
       <LinearProgress
         className="progressBar"
         variant="determinate"

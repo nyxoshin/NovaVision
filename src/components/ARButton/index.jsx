@@ -30,21 +30,12 @@ export default function ARButton({ name, loader }) {
           href={`./models/Apple/${name}.usdz`}
           className="link--arbutton--android"
         >
-          {loader == "BF" ? (
-            <img
-              src="./images/BFLoader.svg"
-              width="50px"
-              height="50px"
-              className="arbutton--img"
-            />
-          ) : (
-            <img
-              src="./images/logo-ar.svg"
-              width="50px"
-              height="50px"
-              className="arbutton--img"
-            />
-          )}
+          <img
+            src="./images/logo-ar.svg"
+            width="50px"
+            height="50px"
+            className="arbutton--img"
+          />
           <span className="linkButtonName">Смотреть в пространстве</span>
         </a>
       )}
@@ -52,21 +43,12 @@ export default function ARButton({ name, loader }) {
         <>
           <div className="container--arbutton">
             <button className="link--arbutton" onClick={() => OpenUrl()}>
-              {loader == "BF" ? (
-                <img
-                  src="./images/BFLoader.svg"
-                  width="50px"
-                  height="50px"
-                  className="arbutton--img"
-                />
-              ) : (
-                <img
-                  src="./images/logo-ar.svg"
-                  width="50px"
-                  height="50px"
-                  className="arbutton--img"
-                />
-              )}
+              <img
+                src="./images/logo-ar.svg"
+                width="50px"
+                height="50px"
+                className="arbutton--img"
+              />
             </button>
             {alertOpenAndroid && (
               <div className="openIosAlert">
