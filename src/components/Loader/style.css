@@ -18,6 +18,10 @@
   /* animation: anim 4s infinite linear; */
 }
 
+.bfLoader {
+  max-height: 150px !important;
+}
+
 .container--loader .progressBar {
   position: absolute;
   bottom: 30%;

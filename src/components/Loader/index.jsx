@@ -26,7 +26,7 @@ export default function Loader({ loader }) {
 
   return (
     <div className="container--loader">
-      {loader == "BF" ? <BFLoader /> : <LoaderPicture />}
+      {loader == "BF" ? <BFLoader nameClass="bfLoader" /> : <LoaderPicture />}
       <LinearProgress
         className="progressBar"
         variant="determinate"
