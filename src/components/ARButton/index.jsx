@@ -4,7 +4,7 @@ import "./style.css";
 import isMobile from "../checkDevice";
 import CloseIcon from "../../assets/icons/svg/closeButton";
 
-export default function ARButton({ name }) {
+export default function ARButton({ name, loader }) {
   const [alertOpenWindows, setAlertOpenWindows] = useState(false);
   console.log("what dafq", alertOpenWindows);
   const [alertOpenAndroid, setAlertOpenAndroid] = useState(false);
@@ -20,9 +20,8 @@ export default function ARButton({ name }) {
         setAlertOpenWindows(false);
       }
     }
-    // window.open(model_url);
   }
-  console.log("check the platform", name);
+  console.log("check the platform", loader == "BF");
   return (
     <>
       {isMobile.iOS() !== null && (
@@ -31,34 +30,43 @@ export default function ARButton({ name }) {
           href={`./models/Apple/${name}.usdz`}
           className="link--arbutton--android"
         >
-          <img
-            src="./images/logo-ar.svg"
-            width="50px"
-            height="50px"
-            className="arbutton--img"
-          />
+          {loader == "BF" ? (
+            <img
+              src="./images/BFLoader.svg"
+              width="50px"
+              height="50px"
+              className="arbutton--img"
+            />
+          ) : (
+            <img
+              src="./images/logo-ar.svg"
+              width="50px"
+              height="50px"
+              className="arbutton--img"
+            />
+          )}
           <span className="linkButtonName">Смотреть в пространстве</span>
         </a>
       )}
       {isMobile.Android() !== null && (
         <>
-          {/* <div className="container--arbutton">
-            <a
-              rel="ar"
-              href="./models/Apple/AR_barfits.usdz"
-              className="link--arbutton"
-            >
-              <img src="./images/logo-ar.svg" width="50px" height="50px" />
-            </a>
-          </div> */}
           <div className="container--arbutton">
             <button className="link--arbutton" onClick={() => OpenUrl()}>
-              <img
-                src="./images/logo-ar.svg"
-                width="50px"
-                height="50px"
-                className="arbutton--img"
-              />
+              {loader == "BF" ? (
+                <img
+                  src="./images/BFLoader.svg"
+                  width="50px"
+                  height="50px"
+                  className="arbutton--img"
+                />
+              ) : (
+                <img
+                  src="./images/logo-ar.svg"
+                  width="50px"
+                  height="50px"
+                  className="arbutton--img"
+                />
+              )}
             </button>
             {alertOpenAndroid && (
               <div className="openIosAlert">
@@ -80,15 +88,6 @@ export default function ARButton({ name }) {
       )}
       {isMobile.Windows() !== null && (
         <>
-          {/* <div className="container--arbutton">
-            <a
-              rel="ar"
-              href="./models/Apple/AR_barfits.usdz"
-              className="link--arbutton"
-            >
-              <img src="./images/logo-ar.svg" width="50px" height="50px" />
-            </a>
-          </div> */}
           <button className="link--arbutton--android" onClick={() => OpenUrl()}>
             <img
               src="./images/logo-ar.svg"

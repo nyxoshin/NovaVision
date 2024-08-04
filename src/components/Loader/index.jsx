@@ -1,10 +1,14 @@
 import "./style.css";
 import LoaderPicture from "../../assets/icons/svg/loaderPicture";
+import BFLoader from "../../assets/icons/svg/BFLoader";
 import { LinearProgress } from "@mui/material";
 import { useState, useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
 export default function Loader() {
   const [progress, setProgress] = useState(0);
+  console.log("queryParams");
+  const [searchParams, setSearchParams] = useSearchParams(); // Query параметры
 
   useEffect(() => {
     const timer = setInterval(() => {
