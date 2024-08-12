@@ -21,7 +21,6 @@ export default function ARButton({ name, loader }) {
       }
     }
   }
-  console.log("check the platform", loader == "BF");
   return (
     <>
       {isMobile.iOS() !== null && (
