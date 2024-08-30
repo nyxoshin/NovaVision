@@ -34,7 +34,7 @@ export default function Application() {
     console.log("Loading complete!");
     setTimeout(() => {
       setShowCanvas(true);
-    }, "1000");
+    }, 1000);
   };
 
   manager.onProgress = function (url, itemsLoaded, itemsTotal) {
