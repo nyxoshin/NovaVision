@@ -32,7 +32,9 @@ export default function Application() {
 
   manager.onLoad = function () {
     console.log("Loading complete!");
-    setShowCanvas(true);
+    setTimeout(() => {
+      setShowCanvas(true);
+    }, 1000);
   };
 
   manager.onProgress = function (url, itemsLoaded, itemsTotal) {
