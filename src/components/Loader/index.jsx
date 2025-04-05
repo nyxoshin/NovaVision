@@ -19,19 +19,28 @@ export default function Loader({ loader }) {
       });
     }, 500);
 
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+      preloader.remove();
+    }
+
+    const novaBlue = '#4254F3';
+
     return () => {
       clearInterval(timer);
     };
   }, []);
 
   return (
-    <div className="container--loader">
-      {loader == "BF" ? <BFLoader nameClass="bfLoader" /> : <LoaderPicture />}
-      <LinearProgress
-        className="progressBar"
-        variant="determinate"
-        value={progress}
-      />
+    <div className="loader-wrapper">
+      <div className="container--loader">
+        {loader == "BF" ? <BFLoader nameClass="bfLoader" /> : <LoaderPicture />}
+        <LinearProgress
+          className="progressBar"
+          variant="determinate"
+          value={progress}
+        />
+      </div>
     </div>
   );
 }

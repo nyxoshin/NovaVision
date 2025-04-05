@@ -5,6 +5,7 @@ import { Stage, OrbitControls } from "@react-three/drei";
 import "../../styles/app.css";
 import Loader from "../../components/Loader";
 import ARButton from "../../components/ARButton";
+import Banner from "../../components/Banner";
 import isMobile from "../../components/checkDevice";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { LoadingManager } from "three";
@@ -82,6 +83,7 @@ export default function Application() {
       > */}
       {showCanvas ? (
         <>
+          <Banner />
           <ARButton
             name={searchParams.get("id")}
             loader={searchParams.get("loader")}
@@ -89,7 +91,7 @@ export default function Application() {
           <Canvas
             gl={{ logarithmicDepthBuffer: true }}
             shadows
-            camera={{ position: [-15, 0, 10], fov: 25 }}
+            camera={{ position: [-100, 0, 0], fov: 80 }}
             id="canvasToTrack"
           >
             <hemisphereLight intensity={0.15} groundColor="black" />

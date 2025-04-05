@@ -1,0 +1,77 @@
+.instruction {
+  z-index: 999;
+  cursor: default;
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
+  max-width: 420px;
+  /* min-width: 25vw; */
+  width: fit-content;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  line-height: 1.4;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+.closeSvg {
+  cursor: pointer;
+  opacity: 60%;
+  position: absolute;
+  padding: 0px;
+  right: 10px;
+  top: 10px;
+  width: fit-content;
+  height: fit-content;
+  border: unset;
+  background-color: transparent;
+}
+.instruction h3 {
+  font-family: "Onest";
+  line-height: 120%;
+  font-size: 26px;
+  font-weight: 700;
+  margin: unset;
+  margin-bottom: 10px;
+}
+.instruction span {
+  line-height: 130%;
+  font-family: "PT Mono", monospace;
+  font-size: 18px;
+  opacity: 60%;
+}
+@media screen and (max-width: 1024px) {
+  .instruction {
+    padding: 24px;
+    min-width: 50vw;
+  }
+  .instruction h3 {
+    font-family: "Onest";
+    font-weight: 700;
+    font-size: 3vw;
+  }
+  .instruction span {
+    font-family: "PT Mono", monospace;
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .instruction {
+    max-width: calc(100vw - 40px) !important;
+  }
+  .instruction h3 {
+    font-family: "Onest";
+    font-weight: 700;
+    font-size: 6vw;
+  }
+  .instruction span {
+    font-family: "PT Mono", monospace;
+    font-size: 4vw;
+  }
+}

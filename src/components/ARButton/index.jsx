@@ -6,7 +6,6 @@ import CloseIcon from "../../assets/icons/svg/closeButton";
 
 export default function ARButton({ name, loader }) {
   const [alertOpenWindows, setAlertOpenWindows] = useState(false);
-  console.log("what dafq", alertOpenWindows);
   const [alertOpenAndroid, setAlertOpenAndroid] = useState(false);
   function OpenUrl() {
     if (isMobile.Android() !== null) {
@@ -30,7 +29,7 @@ export default function ARButton({ name, loader }) {
           className="link--arbutton--android"
         >
           <img
-            src="./images/logo-ar.svg"
+            src="./images/logo-ar-white.svg"
             width="50px"
             height="50px"
             className="arbutton--img"
@@ -43,7 +42,7 @@ export default function ARButton({ name, loader }) {
           <div className="container--arbutton">
             <button className="link--arbutton" onClick={() => OpenUrl()}>
               <img
-                src="./images/logo-ar.svg"
+                src="./images/logo-ar-white.svg"
                 width="50px"
                 height="50px"
                 className="arbutton--img"
@@ -71,7 +70,7 @@ export default function ARButton({ name, loader }) {
         <>
           <button className="link--arbutton--android" onClick={() => OpenUrl()}>
             <img
-              src="./images/logo-ar.svg"
+              src="./images/logo-ar-white.svg"
               width="34px"
               height="34px"
               className="arbutton--img winMacin"

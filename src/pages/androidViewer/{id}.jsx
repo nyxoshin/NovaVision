@@ -109,7 +109,7 @@ export default function AndroidViewer() {
             className="link--arbutton--android"
           >
             <img
-              src="./images/logo-ar.svg "
+              src="./images/logo-ar-white.svg "
               width="50px"
               height="50px"
               className="arbutton--img"
