@@ -1,6 +1,10 @@
+![fdahgdfg](https://github.com/user-attachments/assets/44aa7f80-4d9a-462a-8e85-7f2a90de8950)
+
 # NovaVision
 
 NovaVision is a React + Three.js web viewer for 3D models with iOS Quick Look AR support.
+
+<img width="748" height="729" alt="Screenshot 2026-02-19 at 18 43 31" src="https://github.com/user-attachments/assets/f6275863-4bf1-446b-88a3-2ff066f3c421" />
 
 ## Features
 
@@ -86,6 +90,33 @@ npm run preview
 - `npm run build` - create production build
 - `npm run preview` - preview production build
 - `npm run lint` - run ESLint
+
+## Embedding NovaVision via iframe
+
+NovaVision can be embedded into any website using a standard HTML `<iframe>`.  
+This allows you to integrate the AR viewer without installing packages or writing additional JavaScript.
+
+### Basic Example
+
+```html
+<iframe
+  src="https://novavisionar.vercel.app/?id=nastya"
+></iframe>
+```
+
+### URL Parameters
+
+NovaVision supports the following query parameters:
+
+- `id` — identifier of the AR scene or configuration to load.
+
+Example:
+
+```
+https://novavisionar.vercel.app/?id=your-scene-id
+```
+
+Replace `your-scene-id` with the required scene identifier.
 
 ## Project Structure
 
