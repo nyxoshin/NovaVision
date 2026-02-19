@@ -11,16 +11,68 @@
     <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>novavision.tech</title>
-    <script type="module" crossorigin src="/assets/index-74a2f5b4.js"></script>
-    <link rel="stylesheet" href="/assets/index-2cad07d2.css" />
+    <script type="module" crossorigin src="/assets/index-ce3b6552.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/three-85f45350.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-three-38d292e7.js">
+    <link rel="stylesheet" href="/assets/index-6d6cbfc7.css">
   </head>
   <body>
-    <div id="root"></div>
+    <script>
+      const preloader = document.createElement("div");
+      preloader.id = "preloader";
+      preloader.innerHTML = `
+        <div style="
+          position: fixed;
+          inset: 0;
+          background: #ddd;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+        ">
+          <img
+            src="/images/Logo.svg"
+            alt="Loading"
+            style="
+              width: clamp(220px, 55vw, 360px);
+              height: auto;
+            "
+          />
+          <div style="
+            width: 140px; height: 4px; background: #9ECBF1; overflow: hidden; position: absolute;
+            bottom: 30%;
+            left: 0px;
+            right: 0px;
+            margin: 0 auto;
+            width: 30%;
+            max-width: 400px;
+            min-width: 240px;">
+            <div style="
+              width: 40%;
+              height: 100%;
+              background: #0078D9;
+              animation: fakeProgress 3s infinite ease-in-out;
+            "></div>
+          </div>
+        </div>
+        <style>
+          @media screen and (max-width: 500px) {
+            #preloader img {
+              width: clamp(240px, 78vw, 380px) !important;
+            }
+          }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
-    <!-- <script
-      type="module"
-      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-    ></script> -->
+          @keyframes fakeProgress {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(0%); }
+            100% { transform: translateX(100%); }
+          }
+        </style>
+      `;
+      document.body.appendChild(preloader);
+    </script>
+    <div id="root"></div>
+    
   </body>
 </html>

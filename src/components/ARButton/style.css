@@ -75,9 +75,6 @@
   background-color: #4254F3;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.7),
-    -6px -6px 10px rgba(255, 255, 255, 0.5),
-    6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
 }
 .link--arbutton--android {
   position: absolute;
@@ -91,6 +88,7 @@
   /* width: 88px;
   height: 88px; */
   width: fit-content;
+  max-width: calc(100vw - 40px);
   left: 0;
   right: 0;
   margin: auto;
@@ -102,9 +100,6 @@
   background-color: #4254F3;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.7),
-    -6px -6px 10px rgba(255, 255, 255, 0.5),
-    6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
 }
 .linkButtonName {
   text-decoration: none;
@@ -115,16 +110,31 @@
   line-height: 17.92px;
   font-family: "PT Mono", monospace;
 }
-.link--arbutton:hover {
-  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6),
-    -2px -2px 4px rgba(255, 255, 255, 0.4),
-    2px 2px 2px rgba(255, 255, 255, 0.05), 2px 2px 4px rgba(0, 0, 0, 0.1);
+.link--arbutton:hover,
+.link--arbutton--android:hover {
+  filter: brightness(1.12) saturate(1.08);
+  transform: translateY(-1px) scale(1.02);
 }
-.link--arbutton:active {
-  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.7),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 2px rgba(255, 255, 255, 0.075),
-    inset 2px 2px 4px rgba(0, 0, 0, 0.15);
+
+.link--arbutton:active,
+.link--arbutton--android:active {
+  filter: brightness(0.92);
+  transform: translateY(1px) scale(0.98);
+}
+
+.link--arbutton:focus-visible,
+.link--arbutton--android:focus-visible,
+.closeSvg:focus-visible {
+  outline: 2px solid #4254F3;
+  outline-offset: 2px;
+}
+
+.closeSvg:hover {
+  opacity: 1;
+}
+
+.closeSvg:active {
+  transform: translateY(1px);
 }
 @media screen and (max-width: 1024px) {
   .container--arbutton {
@@ -156,7 +166,7 @@
 
 @media screen and (max-width: 500px) {
   .openIosAlert {
-    min-width: calc(100vw - 20px) !important;
+    min-width: calc(100vw - 40px) !important;
   }
   .openIosAlert h3 {
     font-family: "Onest";

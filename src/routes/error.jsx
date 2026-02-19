@@ -1,6 +1,4 @@
-import { ReactNode } from "react";
-
-export function ErrorContainer(children) {
+export function ErrorContainer({ children }) {
   return (
     <div className="ErrorPage">
       <div className="main_block">{children}</div>

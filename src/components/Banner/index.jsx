@@ -1,16 +1,15 @@
-import React from "react";
 import "./style.css";
 import { useState } from "react";
 import CloseIcon from "../../assets/icons/svg/closeButton";
 
-export default function ARButton({ name, loader }) {
+export default function ARButton() {
   const [instrOpen, setInstrOpen] = useState(true);
   return (
     instrOpen && (
       <div className="instruction">
-        <h3>Попробуйте в AR!</h3>
+        <h3>Try it in AR!</h3>
         <span>
-        Нажмите на кнопку ниже, чтобы увидеть модель в дополненной реальности прямо через свой смартфон.
+          Tap the button below to view the model in augmented reality on your smartphone.
         </span>
         <button
           className="closeSvg"

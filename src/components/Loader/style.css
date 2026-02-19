@@ -1,25 +1,30 @@
+.loader-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  width: 100vw;
+  height: 100vh;
+}
+
 .container--loader {
   width: 100%;
   height: 100%;
   background-color: #ddd;
 }
 
-.container--loader svg {
-  height: 100px;
+.loaderArIcon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* width: 0px;
-  height: 0px; */
-  /* border-radius: 100%; */
-  /* opacity: 0; */
-  /* border: 5px solid gray; */
-  /* animation: anim 4s infinite linear; */
+  width: clamp(220px, 55vw, 360px);
+  height: auto;
 }
 
-.bfLoader {
-  height: 100px !important;
+@media screen and (max-width: 500px) {
+  .loaderArIcon {
+    width: clamp(240px, 78vw, 380px);
+  }
 }
 
 .container--loader .progressBar {
@@ -32,47 +37,3 @@
   max-width: 400px;
   min-width: 240px;
 }
-
-@keyframes anim {
-  0% {
-    opacity: 0;
-    width: 0vmin;
-    height: 0vmin;
-  }
-  10% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 0;
-    width: 100vmin;
-    height: 100vmin;
-  }
-}
-
-/* .container--loader div:nth-child(1) {
-  animation-delay: 200ms;
-}
-.container--loader div:nth-child(2) {
-  animation-delay: 400ms;
-}
-.container--loader div:nth-child(3) {
-  animation-delay: 600ms;
-}
-.container--loader div:nth-child(4) {
-  animation-delay: 800ms;
-}
-.container--loader div:nth-child(5) {
-  animation-delay: 1000ms;
-}
-.container--loader div:nth-child(6) {
-  animation-delay: 1200ms;
-}
-.container--loader div:nth-child(7) {
-  animation-delay: 1400ms;
-}
-.container--loader div:nth-child(8) {
-  animation-delay: 1600ms;
-}
-.container--loader div:nth-child(9) {
-  animation-delay: 1800ms;
-} */

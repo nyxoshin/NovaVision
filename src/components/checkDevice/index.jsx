@@ -1,24 +1,36 @@
+function getNavigatorInfo() {
+  const ua = navigator.userAgent || "";
+  const platform = navigator.platform || "";
+  return { ua, platform };
+}
+
 const isMobile = {
   Android: function () {
-    return navigator.userAgent.match(/Android/i);
+    const { ua } = getNavigatorInfo();
+    return /Android/i.test(ua);
   },
   BlackBerry: function () {
-    return navigator.userAgent.match(/BlackBerry/i);
+    const { ua } = getNavigatorInfo();
+    return /BlackBerry/i.test(ua);
   },
   iOS: function () {
-    const iOSDevice = navigator.userAgent.match(/iPhone|iPad/i);
+    const { ua, platform } = getNavigatorInfo();
+    const iOSDevice = /iPhone|iPad/i.test(ua);
     const iPadOS13Up =
-      navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+      platform === "MacIntel" && navigator.maxTouchPoints > 1;
     return iOSDevice || iPadOS13Up;
   },
   Opera: function () {
-    return navigator.userAgent.match(/Opera Mini/i);
+    const { ua } = getNavigatorInfo();
+    return /Opera Mini/i.test(ua);
   },
   Windows: function () {
-    return navigator.userAgent.match(/Windows/i);
+    const { ua } = getNavigatorInfo();
+    return /Windows/i.test(ua);
   },
   Mac: function () {
-    return navigator.userAgent.match(/Macintosh/i);
+    const { ua } = getNavigatorInfo();
+    return /Macintosh/i.test(ua);
   },
   any: function () {
     return (

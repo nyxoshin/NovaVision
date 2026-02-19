@@ -1,44 +1,24 @@
 import "./style.css";
-import LoaderPicture from "../../assets/icons/svg/loaderPicture";
-import BFLoader from "../../assets/icons/svg/BFLoader";
 import { LinearProgress } from "@mui/material";
-import { useState, useEffect } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { removePreloader } from "../../utils/preloader";
 
-export default function Loader({ loader }) {
-  const [progress, setProgress] = useState(0);
-
+export default function Loader() {
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (oldProgress === 100) {
-          return 0;
-        }
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 100);
-      });
-    }, 500);
-
-    const preloader = document.getElementById("preloader");
-    if (preloader) {
-      preloader.remove();
-    }
-
-    const novaBlue = '#4254F3';
-
-    return () => {
-      clearInterval(timer);
-    };
+    removePreloader();
   }, []);
 
   return (
     <div className="loader-wrapper">
       <div className="container--loader">
-        {loader == "BF" ? <BFLoader nameClass="bfLoader" /> : <LoaderPicture />}
+        <img
+          src="/images/Logo.svg"
+          className="loaderArIcon"
+          alt="Loading"
+        />
         <LinearProgress
           className="progressBar"
-          variant="determinate"
-          value={progress}
+          variant="indeterminate"
         />
       </div>
     </div>
