@@ -1,36 +1,33 @@
-import { createBrowserRouter, useSearchParams } from "react-router-dom";
-import SmartSuspense from "../components/SuspenseCustom";
-import React, { Suspense } from "react";
-import { lazy } from "react";
+import { createBrowserRouter } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import Loader from "../components/Loader";
 import Application from "../pages/application/{id}";
+import ErrorPage from "../pages/errorPage";
 
 // const [searchParams, setSearchParams] = useSearchParams(); // Query параметры
 // const loaderName = searchParams.get("loader");
 ///// Посмотреть скорость загрузки и статус Pending на загрузке модели
 
-const ErrorPage = lazy(() => import("../pages/errorPage"));
-// const Application = lazy(() => import("../pages/application/{id}"));
 const AndroidViewer = lazy(() => import("../pages/androidViewer/{id}"));
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <Application />,
-    errorElement: (
-      <div>
-        <ErrorPage />
-      </div>
-    ),
+    errorElement: <ErrorPage />,
   },
   {
     path: "/testable",
-    element: <AndroidViewer />,
-    errorElement: (
-      <div>
-        <ErrorPage />
-      </div>
+    element: (
+      <Suspense fallback={<Loader />}>
+        <AndroidViewer />
+      </Suspense>
     ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/error",
+    element: <ErrorPage />,
   },
   {
     path: "/test",
