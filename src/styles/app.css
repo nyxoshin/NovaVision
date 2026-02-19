@@ -1,5 +1,402 @@
 .canvas--container {
+  position: relative;
   width: 100vw;
   height: 100vh;
   background-color: #dddddd;
+}
+
+.mainPageTopLogo {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  width: clamp(220px, 55vw, 360px);
+  height: auto;
+  pointer-events: none;
+}
+
+.dropzoneModal {
+  z-index: 999;
+  cursor: default;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  max-width: 420px;
+  width: fit-content;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  line-height: 1.4;
+  background-color: #f1f1f1;
+  border-radius: 18px;
+  box-sizing: border-box;
+  gap: 20px;
+  transition: border-color 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.dropzoneModalLanding {
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  max-width: 520px;
+  width: calc(100vw - 40px);
+  align-items: center;
+  text-align: center;
+}
+
+.dropzoneModalActive {
+  border-color: #4254f3;
+  background-color: #eef1ff;
+}
+
+.dropzoneEyebrow {
+  font-family: "PT Mono", monospace;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #5f6472;
+}
+
+.dropzoneTitle {
+  font-family: "Onest";
+  line-height: 120%;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.dropzoneDescription {
+  margin: 0;
+  line-height: 130%;
+  font-family: "PT Mono", monospace;
+  font-size: 18px;
+  color: #4a4f5a;
+}
+
+.dropzoneDescription code {
+  font-family: "PT Mono", monospace;
+  background-color: #d8dbe3;
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+.dropzoneDropArea {
+  cursor: pointer;
+  margin-top: 4px;
+  width: 100%;
+  min-height: 130px;
+  border: 2px dashed #c6cad7;
+  border-radius: 16px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.dropzoneModalActive .dropzoneDropArea {
+  border-color: #4254f3;
+  background-color: #f8f9ff;
+}
+
+.dropzoneDropArea:hover {
+  border-color: #4254f3;
+  background-color: #f8f9ff;
+}
+
+.dropzoneDropArea:active {
+  transform: translateY(1px) scale(0.995);
+}
+
+.dropzoneDropHint {
+  font-family: "PT Mono", monospace;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #23262d;
+}
+
+.dropzoneDropOr {
+  font-family: "PT Mono", monospace;
+  font-size: 18px;
+  color: #7a808f;
+  text-transform: uppercase;
+}
+
+.dropzoneChooseButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: unset;
+  cursor: pointer;
+  border-radius: 100px;
+  padding: 12px 20px;
+  font-family: "PT Mono", monospace;
+  font-size: 18px;
+  line-height: 1;
+  color: #fff;
+  background-color: #4254f3;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out, transform 0.2s ease-out, filter 0.2s ease-out;
+}
+
+.dropzoneChooseButton:hover {
+  filter: brightness(1.12) saturate(1.08);
+  transform: translateY(-1px) scale(1.02);
+}
+
+.dropzoneChooseButton:active {
+  filter: brightness(0.92);
+  transform: translateY(1px) scale(0.98);
+}
+
+.dropzoneMeta {
+  margin-top: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 130%;
+  font-family: "PT Mono", monospace;
+  font-size: 18px;
+  opacity: 0.9;
+  width: 100%;
+}
+
+.dropzoneMetaLabel {
+  opacity: 0.7;
+}
+
+.dropzoneFileName {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropzoneResetButton {
+  width: fit-content;
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #9f1d33;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.dropzoneResetIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.dropzoneError {
+  width: fit-content;
+  max-width: calc(100vw - 40px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  font-family: "PT Mono", monospace;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #9f1d33;
+}
+
+.dropzoneError span {
+  display: inline-block;
+}
+
+.dropzoneErrorClose {
+  border: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 100px;
+  padding: 0;
+  background-color: #b8becd;
+  color: #000000;
+  font-size: 14px;
+  line-height: 1;
+  font-family: "PT Mono", monospace;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dropzoneModels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dropzoneModelsAfterModal {
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.dropzoneCompact {
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(30px + 44px + 6px + 20px);
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.dropzoneCompactAction {
+  width: fit-content;
+  max-width: calc(100vw - 40px);
+  min-height: 44px;
+  border-radius: 100px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 16px;
+  font-family: "PT Mono", monospace;
+  font-size: 16px;
+  line-height: 17.92px;
+  font-weight: 400;
+  text-align: center;
+  white-space: normal;
+}
+
+.dropzoneCompactDropArea {
+  cursor: pointer;
+  border: 2px dashed #bfc5d6;
+  background-color: #f1f1f1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.dropzoneCompactActive .dropzoneCompactDropArea {
+  border-color: #4254f3;
+  background-color: #eef1ff;
+}
+
+.dropzoneCompactDropArea:hover {
+  border-color: #4254f3;
+  background-color: #eef1ff;
+}
+
+.dropzoneCompactDropArea:active {
+  transform: translateY(1px) scale(0.995);
+}
+
+.dropzoneCompactText {
+  font-family: "PT Mono", monospace;
+  font-size: 16px;
+  line-height: 17.92px;
+  font-weight: 400;
+  color: #4a4f5a;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+.dropzoneNoBreak {
+  white-space: nowrap;
+}
+
+.sceneError {
+  z-index: 999;
+  position: fixed;
+  left: 50%;
+  bottom: 88px;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 40px);
+  width: fit-content;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: "PT Mono", monospace;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #9f1d33;
+  background-color: rgba(159, 29, 51, 0.12);
+}
+
+.canvas--withLocalModel .link--arbutton--android {
+  width: fit-content;
+  max-width: calc(100vw - 40px);
+}
+
+@media screen and (max-width: 500px) {
+  .mainPageTopLogo {
+    width: clamp(240px, 78vw, 380px);
+  }
+
+  .dropzoneModal {
+    left: 20px;
+    right: 20px;
+    bottom: 10px;
+    max-width: none;
+    width: auto;
+    padding: 16px;
+  }
+
+  .dropzoneModalLanding {
+    left: 50%;
+    right: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    width: calc(100vw - 40px);
+  }
+
+  .dropzoneTitle {
+    font-size: 20px;
+  }
+
+  .dropzoneDescription {
+    font-size: 13px;
+  }
+
+  .dropzoneDropArea {
+    min-height: 116px;
+  }
+
+  .dropzoneChooseButton {
+    padding: 11px 18px;
+  }
+
+  .dropzoneModelsAfterModal {
+    width: calc(100vw - 40px);
+  }
+
+  .dropzoneCompact {
+    width: fit-content;
+  }
+
+  .dropzoneCompactDropArea {
+    text-align: center;
+  }
 }

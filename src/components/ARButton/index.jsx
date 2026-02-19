@@ -3,9 +3,10 @@ import "./style.css";
 import isMobile from "../checkDevice";
 import CloseIcon from "../../assets/icons/svg/closeButton";
 
-export default function ARButton({ name }) {
+export default function ARButton({ name, usdzUrl }) {
   const [alertOpenWindows, setAlertOpenWindows] = useState(false);
   const [alertOpenAndroid, setAlertOpenAndroid] = useState(false);
+  const href = usdzUrl || `./models/usdz/${name}.usdz`;
 
   function openUrl() {
     if (isMobile.Android()) {
@@ -20,18 +21,14 @@ export default function ARButton({ name }) {
   return (
     <>
       {isMobile.iOS() && (
-        <a
-          rel="ar"
-          href={`./models/Apple/${name}.usdz`}
-          className="link--arbutton--android"
-        >
+        <a rel="ar" href={href} className="link--arbutton--android">
           <img
-            src="./images/logo-ar-white.svg"
+            src="./images/ar.svg"
             width="50px"
             height="50px"
             className="arbutton--img"
           />
-          <span className="linkButtonName">Смотреть в пространстве</span>
+          <span className="linkButtonName">View in your space</span>
         </a>
       )}
       {isMobile.Android() && (
@@ -39,7 +36,7 @@ export default function ARButton({ name }) {
           <div className="container--arbutton">
             <button className="link--arbutton" onClick={openUrl}>
               <img
-                src="./images/logo-ar-white.svg"
+                src="./images/ar.svg"
                 width="50px"
                 height="50px"
                 className="arbutton--img"
@@ -47,10 +44,9 @@ export default function ARButton({ name }) {
             </button>
             {alertOpenAndroid && (
               <div className="openIosAlert">
-                <h3>Откройте на iOS или iPadOS</h3>
+                <h3>Open on iOS or iPadOS</h3>
                 <span>
-                  К сожалению, для просмотра модели в AR нужно зайти на сайт с
-                  iPhone или iPad
+                  To view this model in AR, please open this site on an iPhone or iPad.
                 </span>
                 <button
                   className="closeSvg"
@@ -67,22 +63,21 @@ export default function ARButton({ name }) {
         <>
           <button className="link--arbutton--android" onClick={openUrl}>
             <img
-              src="./images/logo-ar-white.svg"
+              src="./images/ar.svg"
               width="34px"
               height="34px"
               className="arbutton--img winMacin"
             />
-            <span className="linkButtonName">Смотреть в пространстве</span>
+            <span className="linkButtonName">View in your space</span>
           </button>
           {alertOpenWindows && (
             <div className="openIosAlert">
               <h3>
-                Откройте на iOS
-                <br /> или iPadOS
+                Open on iOS
+                <br /> or iPadOS
               </h3>
               <span>
-                К сожалению, для просмотра модели в AR нужно зайти на сайт с
-                iPhone или iPad
+                To view this model in AR, please open this site on an iPhone or iPad.
               </span>
               <button
                 className="closeSvg"

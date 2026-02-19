@@ -1,61 +1,94 @@
 import { useEffect, useState } from "react";
+import "@google/model-viewer";
 import "../../styles/app.css";
 import Loader from "../../components/Loader";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import styles from "../androidViewer/AVStyle.module.css";
-import BFLoader from "../../assets/icons/svg/BFLoader";
-import LoaderPicture from "../../assets/icons/svg/loaderPicture";
-import { LoadingManager } from "three";
-import { USDZLoader } from "three/examples/jsm/Addons.js";
+import { isBuiltInModelId, resolveModelId } from "../../constants/models";
 
 export default function AndroidViewer() {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams(); // Query параметры
+  const [searchParams] = useSearchParams(); // Query params
   const [showCanvas, setShowCanvas] = useState(false);
+  const [hasUsdz, setHasUsdz] = useState(false);
+  const [loadError, setLoadError] = useState("");
+  const [reloadKey, setReloadKey] = useState(0);
   const modelId = searchParams.get("id");
-  const safeModelId = modelId ?? "standart_wall";
-  const usdzModelPath = `./models/Apple/${safeModelId}.usdz`;
-  const glbModelPath = `./models/models_android/${safeModelId}.glb`;
+  const loaderName = searchParams.get("loader");
+  const safeModelId = resolveModelId(modelId);
+  const usdzModelPath = `./models/usdz/${safeModelId}.usdz`;
+  const glbModelPath = `./models/glb/${safeModelId}.glb`;
+  const posterPath = "/images/Logo.svg";
 
   useEffect(() => {
-    if (!modelId) {
+    if (!modelId || !isBuiltInModelId(modelId)) {
       navigate("/error");
     }
   }, [modelId, navigate]);
 
-  const loaderName = searchParams.get("loader");
   useEffect(() => {
-    let isMounted = true;
+    let isCancelled = false;
+    const abortController = new AbortController();
 
     setShowCanvas(false);
+    setHasUsdz(false);
+    setLoadError("");
 
-    const manager = new LoadingManager();
+    const verifyAssets = async () => {
+      try {
+        const glbResponse = await fetch(glbModelPath, {
+          method: "HEAD",
+          signal: abortController.signal,
+        });
+        if (!glbResponse.ok) {
+          throw new Error(`GLB file is not available: ${glbModelPath}`);
+        }
+        if (!isCancelled) {
+          setShowCanvas(true);
+        }
+      } catch (error) {
+        if (!isCancelled && !(error instanceof DOMException && error.name === "AbortError")) {
+          setLoadError(`Failed to load model assets: ${glbModelPath}`);
+        }
+      }
 
-    manager.onLoad = function () {
-      if (isMounted) {
-        setShowCanvas(true);
+      try {
+        const usdzResponse = await fetch(usdzModelPath, {
+          method: "HEAD",
+          signal: abortController.signal,
+        });
+        if (!isCancelled && usdzResponse.ok) {
+          setHasUsdz(true);
+        }
+      } catch {
+        if (!isCancelled) {
+          setHasUsdz(false);
+        }
       }
     };
 
-    manager.onError = function (url) {
-      console.log("There was an error loading " + url);
-    };
-
-    const usdzLoader = new USDZLoader(manager);
-    usdzLoader.load(usdzModelPath, () => {});
+    verifyAssets();
 
     return () => {
-      isMounted = false;
+      isCancelled = true;
+      abortController.abort();
     };
-  }, [usdzModelPath]);
+  }, [glbModelPath, usdzModelPath, reloadKey]);
 
   return (
     <div className={styles.modelViewer}>
-      {showCanvas ? (
+      {loadError ? (
+        <div className={styles.errorState}>
+          <p>{loadError}</p>
+          <button className={styles.retryButton} onClick={() => setReloadKey((value) => value + 1)}>
+            Retry
+          </button>
+        </div>
+      ) : showCanvas ? (
         <model-viewer
           src={glbModelPath}
-          ios-src={usdzModelPath}
-          poster={loaderName === "BF" ? BFLoader : LoaderPicture}
+          ios-src={hasUsdz ? usdzModelPath : undefined}
+          poster={posterPath}
           alt="A 3D model"
           shadow-intensity="1"
           camera-controls
@@ -68,12 +101,12 @@ export default function AndroidViewer() {
             className="link--arbutton--android"
           >
             <img
-              src="./images/logo-ar-white.svg "
+              src="./images/ar.svg"
               width="50px"
               height="50px"
               className="arbutton--img"
             />
-            <span className="linkButtonName">Смотреть в пространстве</span>
+            <span className="linkButtonName">View in your space</span>
           </button>
         </model-viewer>
       ) : (
