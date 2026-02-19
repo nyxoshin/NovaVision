@@ -250,7 +250,7 @@
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 30px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 30px);
   margin: 0 auto;
   width: fit-content;
 }
@@ -260,7 +260,7 @@
   position: fixed;
   left: 0;
   right: 0;
-  bottom: calc(30px + 44px + 6px + 20px);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 110px);
   margin: 0 auto;
   width: fit-content;
   display: flex;
