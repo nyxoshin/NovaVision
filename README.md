@@ -4,7 +4,7 @@
 
 NovaVision is a React + Three.js web viewer for 3D models with iOS Quick Look AR support.
 
-<img width="748" height="729" alt="Screenshot 2026-02-19 at 18 43 31" src="https://github.com/user-attachments/assets/f6275863-4bf1-446b-88a3-2ff066f3c421" />
+<img width="100%" height="auto" alt="Screenshot 2026-02-19 at 18 43 31" src="https://github.com/user-attachments/assets/f6275863-4bf1-446b-88a3-2ff066f3c421" />
 
 ## Features
 
