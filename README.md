@@ -157,6 +157,6 @@ This project is licensed under the terms of the MIT open source license.
 
 
 ## Creators
-- Daniil Vorontsov (Product Owner) — linkedin.com/in/daniilvorontsov/
-- Nikita Soshin (Product Owner, Lead Designer, Software Engineer) — linkedin.com/in/nyxoshin/
-- Rovshan Shushkov (Software Engineer) — linkedin.com/in/romashken/
+- Daniil Vorontsov (Product Owner) — [LinkedIn](linkedin.com/in/daniilvorontsov/)
+- Nikita Soshin (Product Owner, Product Designer, Software Engineer) — [LinkedIn](linkedin.com/in/nyxoshin/)
+- Rovshan Shushkov (Software Engineer) — [LinkedIn](linkedin.com/in/romashken/)
