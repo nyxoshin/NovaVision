@@ -1,28 +1,25 @@
-import React from "react";
 import { useState } from "react";
 import "./style.css";
 import isMobile from "../checkDevice";
 import CloseIcon from "../../assets/icons/svg/closeButton";
 
-export default function ARButton({ name, loader }) {
+export default function ARButton({ name }) {
   const [alertOpenWindows, setAlertOpenWindows] = useState(false);
   const [alertOpenAndroid, setAlertOpenAndroid] = useState(false);
-  function OpenUrl() {
-    if (isMobile.Android() !== null) {
+
+  function openUrl() {
+    if (isMobile.Android()) {
+      setAlertOpenWindows(false);
       setAlertOpenAndroid(true);
-      if (alertOpenAndroid === true) {
-        setAlertOpenAndroid(false);
-      }
-    } else if (isMobile.Windows() !== null) {
+    } else if (isMobile.Windows() || isMobile.Mac()) {
+      setAlertOpenAndroid(false);
       setAlertOpenWindows(true);
-      if (alertOpenWindows === true) {
-        setAlertOpenWindows(false);
-      }
     }
   }
+
   return (
     <>
-      {isMobile.iOS() !== null && (
+      {isMobile.iOS() && (
         <a
           rel="ar"
           href={`./models/Apple/${name}.usdz`}
@@ -37,10 +34,10 @@ export default function ARButton({ name, loader }) {
           <span className="linkButtonName">Смотреть в пространстве</span>
         </a>
       )}
-      {isMobile.Android() !== null && (
+      {isMobile.Android() && (
         <>
           <div className="container--arbutton">
-            <button className="link--arbutton" onClick={() => OpenUrl()}>
+            <button className="link--arbutton" onClick={openUrl}>
               <img
                 src="./images/logo-ar-white.svg"
                 width="50px"
@@ -66,9 +63,9 @@ export default function ARButton({ name, loader }) {
           </div>
         </>
       )}
-      {isMobile.Windows() !== null && (
+      {(isMobile.Windows() || isMobile.Mac()) && (
         <>
-          <button className="link--arbutton--android" onClick={() => OpenUrl()}>
+          <button className="link--arbutton--android" onClick={openUrl}>
             <img
               src="./images/logo-ar-white.svg"
               width="34px"
