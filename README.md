@@ -150,3 +150,13 @@ public/
 - If `id` is missing, the main page defaults to `cat` once a model route is used.
 - Local object URLs are revoked when replaced/unmounted.
 - iOS AR depends on valid USDZ assets.
+
+## License
+
+This project is licensed under the terms of the MIT open source license.
+
+
+## Creators
+Daniil Vorontsov (Product Owner) — linkedin.com/in/daniilvorontsov/
+Nikita Soshin (Product Owner, Lead Designer, Software Engineer) — linkedin.com/in/nyxoshin/
+Rovshan Shushkov (Software Engineer) — linkedin.com/in/romashken/
