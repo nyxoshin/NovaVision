@@ -77,10 +77,10 @@
   cursor: pointer;
 }
 .link--arbutton--android {
-  position: absolute;
+  position: fixed;
   color: inherit;
   z-index: 999;
-  bottom: 30px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 30px);
   border: unset;
   display: flex;
   flex-direction: row;

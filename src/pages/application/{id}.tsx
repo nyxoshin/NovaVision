@@ -1,4 +1,4 @@
-import { Component, Suspense, useEffect, useState } from "react";
+import { Component, Suspense, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
@@ -94,14 +94,30 @@ function getUSDZExporterCtor() {
   return usdzExporterCtorPromise;
 }
 
+async function hasStaticUsdzAsset(url: string) {
+  try {
+    const response = await fetch(url, { method: "HEAD", cache: "no-store" });
+    if (!response.ok) {
+      return false;
+    }
+    const contentType = response.headers.get("content-type") ?? "";
+    return !contentType.includes("text/html");
+  } catch {
+    return false;
+  }
+}
+
 export default function Application() {
   const [searchParams] = useSearchParams(); // Query params
   const [modelReady, setModelReady] = useState<boolean>(false);
   const [isConvertingModel, setIsConvertingModel] = useState(false);
   const [isDragActive, setIsDragActive] = useState(false);
   const [localModel, setLocalModel] = useState<LocalModel | null>(null);
+  const [hasBuiltInUsdz, setHasBuiltInUsdz] = useState<boolean | null>(null);
+  const [generatedBuiltInUsdzUrl, setGeneratedBuiltInUsdzUrl] = useState<string | null>(null);
   const [dropzoneError, setDropzoneError] = useState<string | null>(null);
   const [sceneError, setSceneError] = useState<string | null>(null);
+  const builtInConversionRunRef = useRef(0);
   const loaderName = searchParams.get("loader");
   const modelId = searchParams.get("id");
   const safeModelId = resolveModelId(modelId);
@@ -128,6 +144,14 @@ export default function Application() {
       revokeModelUrls(localModel);
     };
   }, [localModel]);
+
+  useEffect(() => {
+    return () => {
+      if (generatedBuiltInUsdzUrl) {
+        URL.revokeObjectURL(generatedBuiltInUsdzUrl);
+      }
+    };
+  }, [generatedBuiltInUsdzUrl]);
 
   function revokeModelUrls(model: LocalModel | null) {
     if (!model) {
@@ -196,6 +220,85 @@ export default function Application() {
     setIsConvertingModel(false);
   }
 
+  useEffect(() => {
+    if (localModel) {
+      setHasBuiltInUsdz(null);
+      setIsConvertingModel(false);
+      return;
+    }
+
+    let cancelled = false;
+    const runId = builtInConversionRunRef.current + 1;
+    builtInConversionRunRef.current = runId;
+    const publicUsdzPath = `./models/usdz/${safeModelId}.usdz`;
+
+    (async () => {
+      setIsConvertingModel(false);
+      setHasBuiltInUsdz(null);
+      const staticUsdzExists = await hasStaticUsdzAsset(publicUsdzPath);
+      if (cancelled || builtInConversionRunRef.current !== runId) {
+        return;
+      }
+
+      setHasBuiltInUsdz(staticUsdzExists);
+      if (staticUsdzExists) {
+        setGeneratedBuiltInUsdzUrl((prev) => {
+          if (prev) {
+            URL.revokeObjectURL(prev);
+          }
+          return null;
+        });
+        return;
+      }
+
+      setIsConvertingModel(true);
+      try {
+        const loader = new GLTFLoader();
+        loader.setDRACOLoader(dracoLoader);
+        const gltf = await loader.loadAsync(publicModelPath);
+        const usdzBuffer = await exportUsdz(gltf.scene);
+        const nextUsdzUrl = URL.createObjectURL(
+          new Blob([usdzBuffer], { type: "model/vnd.usdz+zip" })
+        );
+
+        if (cancelled || builtInConversionRunRef.current !== runId) {
+          URL.revokeObjectURL(nextUsdzUrl);
+          return;
+        }
+
+        setGeneratedBuiltInUsdzUrl((prev) => {
+          if (prev) {
+            URL.revokeObjectURL(prev);
+          }
+          return nextUsdzUrl;
+        });
+      } catch (error) {
+        if (!cancelled && builtInConversionRunRef.current === runId) {
+          setGeneratedBuiltInUsdzUrl((prev) => {
+            if (prev) {
+              URL.revokeObjectURL(prev);
+            }
+            return null;
+          });
+          console.error("Built-in GLB to USDZ fallback conversion failed:", error);
+        }
+      } finally {
+        if (!cancelled && builtInConversionRunRef.current === runId) {
+          setIsConvertingModel(false);
+        }
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [localModel, publicModelPath, safeModelId]);
+
+  const arUsdzUrl = localModel?.usdzUrl ?? generatedBuiltInUsdzUrl ?? undefined;
+  const hasArAsset = localModel
+    ? Boolean(localModel.usdzUrl)
+    : hasBuiltInUsdz === true || Boolean(generatedBuiltInUsdzUrl);
+
   return (
     <div className={`canvas--container ${localModel ? "canvas--withLocalModel" : ""}`}>
       {shouldShowLanding && (
@@ -238,8 +341,8 @@ export default function Application() {
       {shouldRenderScene && !sceneError && modelReady && isLocalAssetsReady && (
         <>
           <Banner />
-          {(!localModel || localModel.usdzUrl) && (
-            <ARButton name={safeModelId} usdzUrl={localModel?.usdzUrl} />
+          {hasArAsset && (
+            <ARButton name={safeModelId} usdzUrl={arUsdzUrl} />
           )}
         </>
       )}
